@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TechTalk.SpecFlow;
 using System.Linq;
-using CityWeather.Api.Models;
 using CityWeather.Data.Contracts;
+using CityWeather.Data.Models;
 using FluentAssertions;
 using Moq;
 
@@ -22,7 +20,6 @@ namespace CityWeather.Specs
             _mockCityRepository = new Mock<IRepository<City>>();
             _mockCityRepository.Setup(x => x.Read()).Returns(_systemCities);
         }
-
 
         [Given(@"That no example cities exist in the system")]
         public void GivenThatNoExampleCitiesExistInTheSystem()
