@@ -3,15 +3,15 @@ using CityWeather.Data.Contracts.Services;
 using CityWeather.Data.Models;
 using CityWeather.Data.Models.Dtos;
 
-namespace CityWeather.Data
+namespace CityWeather.Data.Services
 {
-    public class CityService: ICityService
+    public class CityDataService: ICityService
     {
         private readonly IRepository<City> _repository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapperService _mapperService;
 
-        public CityService(IRepository<City> repository, IUnitOfWork unitOfWork, IMapperService mapperService)
+        public CityDataService(IRepository<City> repository, IUnitOfWork unitOfWork, IMapperService mapperService)
         {
             _repository = repository;
             _unitOfWork = unitOfWork;

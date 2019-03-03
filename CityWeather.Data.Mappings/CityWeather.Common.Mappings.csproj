@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IMapperFactory.cs" />
     <Compile Include="MapperService.cs" />
     <Compile Include="MapperFactory.cs" />
     <Compile Include="Profiles\CityProfile.cs" />

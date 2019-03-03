@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using CityWeather.Data.Contracts;
 
-namespace CityWeather.Data
+namespace CityWeather.Data.Repositories
 {
     internal class Repository<TContext, TEntity> : IRepository<TEntity> 
         where TContext: DbContext 

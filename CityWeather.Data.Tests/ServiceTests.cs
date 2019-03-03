@@ -5,6 +5,7 @@ using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using CityWeather.Data.Models.Dtos;
+using CityWeather.Data.Services;
 using City = CityWeather.Data.Models.City;
 
 namespace CityWeather.Data.Tests
@@ -12,7 +13,7 @@ namespace CityWeather.Data.Tests
     [TestClass]
     public class ServiceTests
     {
-        private CityService _sutService;
+        private CityDataService _sutService;
         private readonly Mock<IRepository<City>> _mockRepo;
         private readonly Mock<IUnitOfWork> _mockUow;
         private Mock<IMapperService> _mockMapperService;
@@ -42,7 +43,7 @@ namespace CityWeather.Data.Tests
         [TestInitialize()]
         public void Startup()
         {
-            _sutService = new CityService(_mockRepo.Object, _mockUow.Object, _mockMapperService.Object);
+            _sutService = new CityDataService(_mockRepo.Object, _mockUow.Object, _mockMapperService.Object);
         }
 
         [TestMethod]

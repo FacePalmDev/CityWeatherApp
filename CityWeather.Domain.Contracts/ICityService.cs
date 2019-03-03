@@ -1,9 +1,9 @@
-﻿using CityWeather.Api.Models;
+﻿using CityWeather.Domain.Models;
 
 namespace CityWeather.Domain.Contracts
 {
-    public interface ICityService
+    public interface ICityDomainService
     {
-        void CreateCity(CityApiModel newCityApiModel);
+        void CreateCity(CityDomainModel newCityApiModel);
     }
 }

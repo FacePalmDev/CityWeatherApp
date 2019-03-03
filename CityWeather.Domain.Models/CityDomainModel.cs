@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CityWeather.Domain.Models
 {
-    public class City
+    public class CityDomainModel
     {
+        public string Name { get; set; }
     }
 }

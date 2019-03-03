@@ -1,6 +1,5 @@
 ﻿using System.Reflection;
 using AutoMapper;
-using CityWeather.Data.Contracts.Factories;
 using CityWeather.Data.Contracts.Services;
 
 namespace CityWeather.Common.Mappings

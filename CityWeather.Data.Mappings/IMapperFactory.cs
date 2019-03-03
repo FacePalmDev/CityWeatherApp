@@ -1,7 +1,7 @@
 ﻿
 using CityWeather.Data.Contracts.Services;
 
-namespace CityWeather.Data.Contracts.Factories
+namespace CityWeather.Common.Mappings
 {
     public interface IMapperFactory
     {

@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CityService.cs" />
+    <Compile Include="CityDomainService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +60,10 @@
     <ProjectReference Include="..\CityWeather.Domain.Contracts\CityWeather.Domain.Contracts.csproj">
       <Project>{958C598B-A818-42F9-83C6-DFD764A2554B}</Project>
       <Name>CityWeather.Domain.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CityWeather.Domain.Models\CityWeather.Domain.Models.csproj">
+      <Project>{6788B23A-9EC6-48DD-9431-23357E757D20}</Project>
+      <Name>CityWeather.Domain.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

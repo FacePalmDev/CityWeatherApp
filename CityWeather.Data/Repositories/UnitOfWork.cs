@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using CityWeather.Data.Contracts;
 using CityWeather.Data.Models;
 
-namespace CityWeather.Data
+namespace CityWeather.Data.Repositories
 {
     internal class UnitOfWork: IUnitOfWork
     {
