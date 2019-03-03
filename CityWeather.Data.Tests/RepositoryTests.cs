@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using CityWeather.Data.Entities;
+using CityWeather.Data.Models;
 using EntityFrameworkMock;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

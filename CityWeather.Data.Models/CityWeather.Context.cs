@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CityWeather.Data.Entities
+namespace CityWeather.Data.Models
 {
     using System;
     using System.Data.Entity;

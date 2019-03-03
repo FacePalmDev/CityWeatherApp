@@ -101,9 +101,9 @@
       <Project>{A3641871-D016-4EAD-8DAA-CFF6BB00DF3D}</Project>
       <Name>CityWeather.Data.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CityWeather.Data.Models\CityWeather.Data.Entities.csproj">
+    <ProjectReference Include="..\CityWeather.Data.Models\CityWeather.Data.Models.csproj">
       <Project>{647A5DF2-57CB-472C-8242-6207EA39E6A6}</Project>
-      <Name>CityWeather.Data.Entities</Name>
+      <Name>CityWeather.Data.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

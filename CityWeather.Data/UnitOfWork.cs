@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CityWeather.Data.Contracts;
-using CityWeather.Data.Entities;
+using CityWeather.Data.Models;
 
 namespace CityWeather.Data
 {
