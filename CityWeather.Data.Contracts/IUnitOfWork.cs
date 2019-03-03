@@ -2,7 +2,7 @@
 
 namespace CityWeather.Data.Contracts
 {
-    internal interface IUnitOfWork
+    public interface IUnitOfWork
     {
         Task Complete();
     }

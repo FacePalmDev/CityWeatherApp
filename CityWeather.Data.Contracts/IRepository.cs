@@ -2,7 +2,7 @@
 
 namespace CityWeather.Data.Contracts
 {
-    internal interface IRepository<T>
+    public interface IRepository<T>
     {
         void Create(T item);
         IEnumerable<T> Read();

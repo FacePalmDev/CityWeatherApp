@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -9,30 +9,30 @@ using CityWeather.Data.Entities;
 
 namespace CityWeather.Data
 {
-    public class Repository<C, T> : IRepository<T> 
-        where C: DbContext 
-        where T: class
+    internal class Repository<TContext, TEntity> : IRepository<TEntity> 
+        where TContext: DbContext 
+        where TEntity: class
     {
-        private readonly C _context;
-        private DbSet<T> _dbSet;
+        private readonly TContext _context;
+        private DbSet<TEntity> _dbSet;
 
-        public Repository(C context)
+        public Repository(TContext context)
         {
             _context = context;
-            _dbSet = _context.Set<T>();
+            _dbSet = _context.Set<TEntity>();
         }
         
-        public void Create(T item)
+        public void Create(TEntity item)
         {
             _dbSet.Add(item);
         }
 
-        public IEnumerable<T> Read()
+        public IEnumerable<TEntity> Read()
         {
             throw new NotImplementedException();
         }
 
-        public void Update(int id, T item)
+        public void Update(int id, TEntity item)
         {
             throw new NotImplementedException();
         }
