@@ -6,6 +6,8 @@ using CityWeather.Data.Models;
 using FluentAssertions;
 using Moq;
 
+// todo: This doesn't really test anything concrete yet but I need each layer coded up.
+
 namespace CityWeather.Specs
 {
     [Binding]
