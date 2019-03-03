@@ -11,8 +11,8 @@ namespace CityWeather.Data.Tests
     public class RepositoryTests
     {
         private Repository<CityWeatherContainer, City> _sutRepo;
-        private DbContextMock<CityWeatherContainer> _mockContext;
-        private DbSetMock<City> _mockCitiesDbSet;
+        private readonly DbContextMock<CityWeatherContainer> _mockContext;
+        private readonly DbSetMock<City> _mockCitiesDbSet;
 
         public RepositoryTests()
         {
