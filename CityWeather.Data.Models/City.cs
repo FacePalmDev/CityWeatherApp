@@ -10,11 +10,13 @@
 namespace CityWeather.Data.Entities
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
     
     public partial class City
     {
-        public int Id { get; set; }
+        [Key]
+		public int Id { get; set; }
         public string Name { get; set; }
     }
 }

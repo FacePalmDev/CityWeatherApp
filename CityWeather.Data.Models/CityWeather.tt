@@ -285,6 +285,7 @@ public class CodeStringGenerator
     {
         return string.Format(
             CultureInfo.InvariantCulture,
+			(_ef.IsKey(edmProperty) ? "[Key]\n\t\t" : "") +
             "{0} {1} {2} {{ {3}get; {4}set; }}",
             Accessibility.ForProperty(edmProperty),
             _typeMapper.GetTypeName(edmProperty.TypeUsage),
@@ -425,7 +426,7 @@ public class CodeStringGenerator
         return inHeader == string.IsNullOrEmpty(_code.VsNamespaceSuggestion())
             ? string.Format(
                 CultureInfo.InvariantCulture,
-                "{0}using System;{1}" +
+                "{0}using System;" + Environment.NewLine + "using System.ComponentModel.DataAnnotations;{1}" +
                 "{2}",
                 inHeader ? Environment.NewLine : "",
                 includeCollections ? (Environment.NewLine + "using System.Collections.Generic;") : "",
