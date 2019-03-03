@@ -3,7 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using TechTalk.SpecFlow;
 using System.Linq;
+using CityWeather.Api.Models;
+using CityWeather.Data.Contracts;
 using FluentAssertions;
+using Moq;
 
 namespace CityWeather.Specs
 {
@@ -11,6 +14,15 @@ namespace CityWeather.Specs
     public class AddingCitiesSteps
     {
         private List<City> _systemCities;
+        private Mock<IRepository<City>> _mockCityRepository;
+
+        [BeforeScenario()]
+        public void BeforeScenario()
+        {
+            _mockCityRepository = new Mock<IRepository<City>>();
+            _mockCityRepository.Setup(x => x.Read()).Returns(_systemCities);
+        }
+
 
         [Given(@"That no example cities exist in the system")]
         public void GivenThatNoExampleCitiesExistInTheSystem()
@@ -63,10 +75,5 @@ namespace CityWeather.Specs
         {
             ScenarioContext.Current.Pending();
         }
-    }
-
-    internal class City
-    {
-        public string Name { get; set; }
     }
 }
