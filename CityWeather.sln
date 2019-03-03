@@ -23,7 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{9BBA9CC1-C27
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Specifications", "Specifications", "{27ED783E-6AEE-4D11-B0E8-715DBDBD782D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityWeather.Data.Models", "CityWeather.Data.Models\CityWeather.Data.Models.csproj", "{647A5DF2-57CB-472C-8242-6207EA39E6A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityWeather.Data.Entities", "CityWeather.Data.Models\CityWeather.Data.Entities.csproj", "{647A5DF2-57CB-472C-8242-6207EA39E6A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

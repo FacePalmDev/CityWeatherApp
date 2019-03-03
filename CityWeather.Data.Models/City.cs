@@ -1,4 +1,4 @@
-﻿namespace CityWeather.Data.Models
+﻿namespace CityWeather.Data.Entities
 {
     public class City
     {

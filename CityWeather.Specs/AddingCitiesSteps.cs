@@ -2,7 +2,7 @@
 using TechTalk.SpecFlow;
 using System.Linq;
 using CityWeather.Data.Contracts;
-using CityWeather.Data.Models;
+using CityWeather.Data.Entities;
 using FluentAssertions;
 using Moq;
 

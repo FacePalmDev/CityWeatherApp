@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CityWeather.Data.Models\CityWeather.Data.Models.csproj" />
+    <ProjectReference Include="..\CityWeather.Data.Models\CityWeather.Data.Entities.csproj" />
     <ProjectReference Include="..\CityWeather.Data\CityWeather.Data.csproj" />
   </ItemGroup>
 
