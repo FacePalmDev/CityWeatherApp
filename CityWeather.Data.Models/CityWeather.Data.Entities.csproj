@@ -31,8 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,9 +50,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="City.cs" />
+    <Compile Include="City.cs">
+      <DependentUpon>CityWeather.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CityWeather.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CityWeather.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CityWeather.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CityWeather.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CityWeather.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CityWeather.edmx</DependentUpon>
+    </Compile>
     <Compile Include="InternalsVisibleTo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="CityWeather.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CityWeather.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CityWeather.edmx.diagram">
+      <DependentUpon>CityWeather.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CityWeather.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CityWeather.Context.cs</LastGenOutput>
+      <DependentUpon>CityWeather.edmx</DependentUpon>
+    </Content>
+    <Content Include="CityWeather.edmx.sql" />
+    <Content Include="CityWeather.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CityWeather.cs</LastGenOutput>
+      <DependentUpon>CityWeather.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

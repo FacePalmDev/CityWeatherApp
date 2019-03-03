@@ -148,7 +148,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 22
  testRunner.When("the system is instructed to add the city \"London\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 23
- testRunner.Then("the system shou¬ld raise an error saying \"The current city already exists\".", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the system should raise an error saying \"The current city already exists\".", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
