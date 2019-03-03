@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CityWeather.Data.Contracts;
-using CityWeather.Data.Models;
 
 namespace CityWeather.Data
 {
@@ -13,13 +9,11 @@ namespace CityWeather.Data
         where TContext: DbContext 
         where TEntity: class
     {
-        private readonly TContext _context;
-        private DbSet<TEntity> _dbSet;
+        private readonly DbSet<TEntity> _dbSet;
 
         public Repository(TContext context)
         {
-            _context = context;
-            _dbSet = _context.Set<TEntity>();
+            _dbSet = context.Set<TEntity>();
         }
         
         public void Create(TEntity item)
