@@ -1,6 +1,6 @@
 ﻿namespace CityWeather.Api.Models
 {
-    public class City
+    public class CityApiModel
     {
         public string Name { get; set; }
     }

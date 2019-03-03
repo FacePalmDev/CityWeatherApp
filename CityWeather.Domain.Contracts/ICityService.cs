@@ -4,6 +4,6 @@ namespace CityWeather.Domain.Contracts
 {
     public interface ICityService
     {
-        void CreateCity(City newCity);
+        void CreateCity(CityApiModel newCityApiModel);
     }
 }

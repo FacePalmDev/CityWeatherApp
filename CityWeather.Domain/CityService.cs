@@ -17,9 +17,9 @@ namespace CityWeather.Domain
             _cityService = cityService;
         }
 
-        public void CreateCity(City newCity)
+        public void CreateCity(CityApiModel newCityApiModel)
         {
-            var cityDto = _mapperService.Map<CityDto>(newCity);
+            var cityDto = _mapperService.Map<CityDto>(newCityApiModel);
             _cityService.CreateCity(cityDto);
         }
     }

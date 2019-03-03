@@ -20,7 +20,7 @@ namespace CityWeather.Domain.Tests
             _mockMapperService = new Mock<IMapperService>();
 
             _mockMapperService
-                .Setup(x => x.Map<CityDto>(It.IsAny<City>()))
+                .Setup(x => x.Map<CityDto>(It.IsAny<CityApiModel>()))
                 .Verifiable();
 
             _mockDataService = new Mock<ICityService>();
@@ -41,7 +41,7 @@ namespace CityWeather.Domain.Tests
         [TestMethod]
         public void Can_Create()
         {
-            var city = new City() { Name = "London" };
+            var city = new CityApiModel() { Name = "London" };
             _sutService.CreateCity(city);
 
             _mockMapperService.Verify(x => x.Map<CityDto>(city), Times.Once());
