@@ -33,7 +33,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityWeather.Domain.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityWeather.Domain.Models", "CityWeather.Domain.Models\CityWeather.Domain.Models.csproj", "{6788B23A-9EC6-48DD-9431-23357E757D20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityWeather.Data.Mappings", "CityWeather.Data.Mappings\CityWeather.Data.Mappings.csproj", "{8FD3981F-530C-4721-B5F1-576971075DA9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityWeather.Common.Mappings", "CityWeather.Data.Mappings\CityWeather.Common.Mappings.csproj", "{8FD3981F-530C-4721-B5F1-576971075DA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityWeather.Api.Models", "CityWeather.Api.Models\CityWeather.Api.Models.csproj", "{8FB46B00-8E8D-4AFC-8992-329D6E283CA5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{E762F5E7-0323-4066-ACB1-9E06DAB92F0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +93,10 @@ Global
 		{8FD3981F-530C-4721-B5F1-576971075DA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FD3981F-530C-4721-B5F1-576971075DA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FD3981F-530C-4721-B5F1-576971075DA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FB46B00-8E8D-4AFC-8992-329D6E283CA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FB46B00-8E8D-4AFC-8992-329D6E283CA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FB46B00-8E8D-4AFC-8992-329D6E283CA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FB46B00-8E8D-4AFC-8992-329D6E283CA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -105,7 +113,8 @@ Global
 		{958C598B-A818-42F9-83C6-DFD764A2554B} = {971721C5-E5A0-4BB6-95CC-8E3371F9041D}
 		{62EADD9B-D963-44AE-9FC5-2D4FFE61BEFE} = {971721C5-E5A0-4BB6-95CC-8E3371F9041D}
 		{6788B23A-9EC6-48DD-9431-23357E757D20} = {971721C5-E5A0-4BB6-95CC-8E3371F9041D}
-		{8FD3981F-530C-4721-B5F1-576971075DA9} = {20F9BD98-D9FC-4498-9912-3D8C7C333DDC}
+		{8FD3981F-530C-4721-B5F1-576971075DA9} = {E762F5E7-0323-4066-ACB1-9E06DAB92F0F}
+		{8FB46B00-8E8D-4AFC-8992-329D6E283CA5} = {9BBA9CC1-C277-4C81-A1CF-E819872CE908}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {825D3F21-622C-46C4-BBF0-F7189C9520FC}

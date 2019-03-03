@@ -73,9 +73,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CityWeather.Api.Models\CityWeather.Api.Models.csproj">
+      <Project>{8fb46b00-8e8d-4afc-8992-329d6e283ca5}</Project>
+      <Name>CityWeather.Api.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CityWeather.Data.Contracts\CityWeather.Data.Contracts.csproj">
-      <Project>{a3641871-d016-4ead-8daa-cff6bb00df3d}</Project>
+      <Project>{A3641871-D016-4EAD-8DAA-CFF6BB00DF3D}</Project>
       <Name>CityWeather.Data.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CityWeather.Data.Models\CityWeather.Data.Models.csproj">
+      <Project>{647A5DF2-57CB-472C-8242-6207EA39E6A6}</Project>
+      <Name>CityWeather.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CityWeather.Domain.Contracts\CityWeather.Domain.Contracts.csproj">
+      <Project>{958c598b-a818-42f9-83c6-dfd764a2554b}</Project>
+      <Name>CityWeather.Domain.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\CityWeather.Domain.Models\CityWeather.Domain.Models.csproj">
       <Project>{6788B23A-9EC6-48DD-9431-23357E757D20}</Project>

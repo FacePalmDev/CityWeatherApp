@@ -102,9 +102,9 @@
       <Project>{a3641871-d016-4ead-8daa-cff6bb00df3d}</Project>
       <Name>CityWeather.Data.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CityWeather.Data.Mappings\CityWeather.Data.Mappings.csproj">
+    <ProjectReference Include="..\CityWeather.Data.Mappings\CityWeather.Common.Mappings.csproj">
       <Project>{8FD3981F-530C-4721-B5F1-576971075DA9}</Project>
-      <Name>CityWeather.Data.Mappings</Name>
+      <Name>CityWeather.Common.Mappings</Name>
     </ProjectReference>
     <ProjectReference Include="..\CityWeather.Data.Models\CityWeather.Data.Models.csproj">
       <Project>{647a5df2-57cb-472c-8242-6207ea39e6a6}</Project>

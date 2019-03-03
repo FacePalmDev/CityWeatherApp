@@ -2,7 +2,7 @@
 using CityWeather.Data.Models;
 using CityWeather.Data.Models.Dtos;
 
-namespace CityWeather.Data.Mappings.Profiles
+namespace CityWeather.Common.Mappings.Profiles
 {
     internal class CityMappingCreator: Profile
     {

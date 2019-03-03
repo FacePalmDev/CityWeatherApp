@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 using AutoMapper;
 using CityWeather.Data.Contracts.Factories;
 using CityWeather.Data.Contracts.Services;
 
-namespace CityWeather.Data.Mappings
+namespace CityWeather.Common.Mappings
 {
     public class MapperFactory: IMapperFactory
     {
@@ -20,7 +15,7 @@ namespace CityWeather.Data.Mappings
                 cfg.AddProfiles(Assembly.GetExecutingAssembly());
             });
         }
-
+        
         public IMapperService GetMapper()
         {
             return new MapperService(_config.CreateMapper());

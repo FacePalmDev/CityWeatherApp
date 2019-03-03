@@ -2,7 +2,7 @@
 using CityWeather.Data.Contracts.Factories;
 using CityWeather.Data.Contracts.Services;
 
-namespace CityWeather.Data.Mappings
+namespace CityWeather.Common.Mappings
 {
     public class MapperService : IMapperService
     {

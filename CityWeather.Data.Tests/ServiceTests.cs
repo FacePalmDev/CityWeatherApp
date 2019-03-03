@@ -1,6 +1,6 @@
 ﻿using CityWeather.Data.Contracts;
 using CityWeather.Data.Contracts.Services;
-using CityWeather.Data.Mappings;
+using CityWeather.Common.Mappings;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
