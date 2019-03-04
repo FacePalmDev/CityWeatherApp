@@ -18,5 +18,10 @@ namespace CityWeather.Data.Models
         [Key]
 		public int Id { get; set; }
         public string Name { get; set; }
+        public string State { get; set; }
+        public string CountryCode { get; set; }
+        public short TouristRating { get; set; }
+        public System.DateTime EstablishedDate { get; set; }
+        public int EstimatedPopulation { get; set; }
     }
 }
