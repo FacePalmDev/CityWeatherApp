@@ -5,9 +5,9 @@ using CityWeather.Domain.Models;
 
 namespace CityWeather.Common.Mappings.Profiles
 {
-    public class CityMappingCreator : Profile
+    public class CityMappingProfile : Profile
     {
-        public CityMappingCreator()
+        public CityMappingProfile()
         {
             CreateMap<CityDomainModel, CityDto>().ReverseMap();
             CreateMap<CityDto, City>().ReverseMap();
