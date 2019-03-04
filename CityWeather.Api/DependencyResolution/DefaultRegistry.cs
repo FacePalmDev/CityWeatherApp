@@ -19,7 +19,8 @@ using System.Reflection;
 using CityWeather.Data.Contracts;
 using CityWeather.Domain.Contracts;
 
-namespace CityWeather.Api.DependencyResolution {
+namespace CityWeather.Api.DependencyResolution
+{
     using CityWeather.Domain;
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
@@ -29,12 +30,15 @@ namespace CityWeather.Api.DependencyResolution {
     using CityWeather.Data.Repositories;
     using CityWeather.Data.Models;
 
-    public class DefaultRegistry : Registry {
+    public class DefaultRegistry : Registry
+    {
         #region Constructors and Destructors
 
-        public DefaultRegistry() {
+        public DefaultRegistry()
+        {
             Scan(
-                scan => {
+                scan =>
+                {
                     scan.TheCallingAssembly();
                     scan.AssemblyContainingType<ICityDomainService>();
                     scan.AssemblyContainingType<CityDomainService>();
@@ -45,9 +49,12 @@ namespace CityWeather.Api.DependencyResolution {
                     scan.WithDefaultConventions();
                 });
 
-            For(typeof(IRepository<,>)).Use(typeof(Repository<,>));
 
             For<IMapperService>().Use<MapperService>().Singleton();
+            For<CityWeatherContainer>().Use<CityWeatherContainer>().Singleton();
+
+            For<IRepository<CityWeatherContainer, City>>().Use<Repository<CityWeatherContainer, City>>();
+            // For(typeof(IRepository<,>)).Use(typeof(Repository<,>));
         }
 
         #endregion

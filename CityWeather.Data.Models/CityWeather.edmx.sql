@@ -6,6 +6,7 @@
 -- Generated from EDMX file: C:\Users\zebco\source\repos\CityWeather\CityWeather.Data.Models\CityWeather.edmx
 -- --------------------------------------------------
 
+
 SET QUOTED_IDENTIFIER OFF;
 GO
 USE [CityWeatherAppDb];
