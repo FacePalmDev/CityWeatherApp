@@ -2,7 +2,7 @@
 
 namespace CityWeather.Data.Contracts.Services
 {
-    public interface ICityService
+    public interface ICityDataService
     {
         void CreateCity(CityDto newCity);
     }

@@ -8,18 +8,18 @@ namespace CityWeather.Domain
     public class CityDomainService: ICityDomainService
     {
         private readonly IMapperService _mapperService;
-        private readonly Data.Contracts.Services.ICityService _cityService;
+        private readonly ICityDataService _cityDataService;
 
-        public CityDomainService(IMapperService mapperService, Data.Contracts.Services.ICityService cityService)
+        public CityDomainService(IMapperService mapperService, ICityDataService cityDataService)
         {
             _mapperService = mapperService;
-            _cityService = cityService;
+            _cityDataService = cityDataService;
         }
 
         public void CreateCity(CityDomainModel newCityDomainModel)
         {
             var cityDtoModel = _mapperService.Map<CityDto>(newCityDomainModel);
-            _cityService.CreateCity(cityDtoModel);
+            _cityDataService.CreateCity(cityDtoModel);
         }
     }
 }

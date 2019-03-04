@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="City.cs">
+    <Compile Include="CityDomainModel.cs">
       <DependentUpon>CityWeather.tt</DependentUpon>
     </Compile>
     <Compile Include="CityWeather.Context.cs">

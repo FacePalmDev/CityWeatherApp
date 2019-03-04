@@ -2,10 +2,11 @@
 using CityWeather.Data.Contracts.Services;
 using CityWeather.Data.Models;
 using CityWeather.Data.Models.Dtos;
+using CityWeather.Domain.Models;
 
 namespace CityWeather.Data.Services
 {
-    public class CityDataService: ICityService
+    public class CityDataService: ICityDataService
     {
         private readonly IRepository<City> _repository;
         private readonly IUnitOfWork _unitOfWork;

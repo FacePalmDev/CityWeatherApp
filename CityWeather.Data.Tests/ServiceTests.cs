@@ -1,22 +1,22 @@
 ﻿using CityWeather.Data.Contracts;
 using CityWeather.Data.Contracts.Services;
-using CityWeather.Common.Mappings;
+using CityWeather.Data.Models;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using CityWeather.Data.Models.Dtos;
 using CityWeather.Data.Services;
-using City = CityWeather.Data.Models.City;
+
 
 namespace CityWeather.Data.Tests
 {
     [TestClass]
     public class ServiceTests
     {
-        private CityDataService _sutService;
+        private ICityDataService _sutDataService;
         private readonly Mock<IRepository<City>> _mockRepo;
         private readonly Mock<IUnitOfWork> _mockUow;
-        private Mock<IMapperService> _mockMapperService;
+        private readonly Mock<IMapperService> _mockMapperService;
 
         public ServiceTests()
         {
@@ -43,13 +43,13 @@ namespace CityWeather.Data.Tests
         [TestInitialize()]
         public void Startup()
         {
-            _sutService = new CityDataService(_mockRepo.Object, _mockUow.Object, _mockMapperService.Object);
+            _sutDataService = new CityDataService(_mockRepo.Object, _mockUow.Object, _mockMapperService.Object);
         }
 
         [TestMethod]
         public void Can_Instantiate()
         {
-            _sutService.Should().NotBeNull();
+            _sutDataService.Should().NotBeNull();
         }
 
         [TestMethod]
@@ -57,7 +57,7 @@ namespace CityWeather.Data.Tests
         {
             var cityDto = new CityDto() { Name = "example" };
 
-            _sutService.CreateCity(cityDto);
+            _sutDataService.CreateCity(cityDto);
 
             _mockRepo.Verify(x => x.Create(It.IsAny<City>()), Times.Once);
             _mockUow.Verify(x => x.Complete(), Times.Once);
