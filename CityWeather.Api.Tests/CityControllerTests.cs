@@ -1,20 +1,18 @@
-﻿
-using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using CityWeather.Api;
-using CityWeather.Api.Controllers;
+﻿using CityWeather.Api.Controllers;
 using CityWeather.Api.Models;
 using CityWeather.Data.Contracts.Services;
 using CityWeather.Domain.Contracts;
 using CityWeather.Domain.Models;
+using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 
-namespace CityWeather.Domain.Tests
+namespace CityWeather.Api.Tests
 {
     [TestClass]
     public class CityControllerTests
     {
-        private CityApiController _sutCityController;
+        private CityController _sutCityController;
         private Mock<ICityDomainService> _mockCityDomainService;
         private Mock<IMapperService> _mockMapperService;
 
@@ -22,7 +20,6 @@ namespace CityWeather.Domain.Tests
         [TestInitialize()]
         public void Startup()
         {
-
             _mockMapperService = new Mock<IMapperService>();
 
             _mockMapperService
@@ -36,7 +33,7 @@ namespace CityWeather.Domain.Tests
                 .Verifiable();
 
             _sutCityController = 
-                new CityApiController(_mockMapperService.Object, _mockCityDomainService.Object);
+                new CityController(_mockMapperService.Object, _mockCityDomainService.Object);
         }
 
         [TestMethod]

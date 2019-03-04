@@ -22,10 +22,10 @@ namespace CityWeather.Specs
     public class AddingCitiesSteps
     {
         private List<City> _exampleCityEntities;
-        private Mock<IRepository<CityWeatherContext, City>> _mockCityRepository;
+        private Mock<IRepository<CityWeatherContainer, City>> _mockCityRepository;
         private Mock<IUnitOfWork> _mockUnitOfWork;
         private MapperService _mapperService;
-        private CityApiController _cityApiController;
+        private CityController _cityApiController;
 
         private readonly List<CityApiModel> _exampleCityApiModels;
 
@@ -44,7 +44,7 @@ namespace CityWeather.Specs
             _mockUnitOfWork = new Mock<IUnitOfWork>();
             _mockUnitOfWork.Setup(x => x.Complete()).Verifiable();
 
-            _mockCityRepository = new Mock<IRepository<CityWeatherContext, City>>();
+            _mockCityRepository = new Mock<IRepository<CityWeatherContainer, City>>();
             _mockCityRepository.Setup(x => x.Read()).Returns(_exampleCityEntities);
             _mockCityRepository.Setup(x => x.Create(It.IsAny<City>()))
                 .Callback((City city) => _exampleCityEntities.Add(city));
@@ -58,7 +58,7 @@ namespace CityWeather.Specs
 
             var cityDomainService = new CityDomainService(_mapperService, cityDataService);
 
-            _cityApiController = new CityApiController(_mapperService, cityDomainService);
+            _cityApiController = new CityController(_mapperService, cityDomainService);
         }
 
         [Given(@"That no example cities exist in the system")]

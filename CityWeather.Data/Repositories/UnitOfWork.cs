@@ -6,9 +6,9 @@ namespace CityWeather.Data.Repositories
 {
     public class UnitOfWork: IUnitOfWork
     {
-        private readonly CityWeatherContext _context;
+        private readonly CityWeatherContainer _context;
 
-        public UnitOfWork(CityWeatherContext context)
+        public UnitOfWork(CityWeatherContainer context)
         {
             _context = context;
         }
