@@ -14,7 +14,7 @@ namespace CityWeather.Domain.Tests
     [TestClass]
     public class CityControllerTests
     {
-        private CityController _sutCityController;
+        private CityApiController _sutCityController;
         private Mock<ICityDomainService> _mockCityDomainService;
         private Mock<IMapperService> _mockMapperService;
 
@@ -36,7 +36,7 @@ namespace CityWeather.Domain.Tests
                 .Verifiable();
 
             _sutCityController = 
-                new CityController(_mockMapperService.Object, _mockCityDomainService.Object);
+                new CityApiController(_mockMapperService.Object, _mockCityDomainService.Object);
         }
 
         [TestMethod]

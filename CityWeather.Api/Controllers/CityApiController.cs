@@ -8,12 +8,12 @@ using CityWeather.Domain.Models;
 
 namespace CityWeather.Api.Controllers
 {
-    public class CityController : ApiController
+    public class CityApiController : ApiController
     {
         private readonly IMapperService _mapperService;
         private readonly ICityDomainService _cityDomainService;
 
-        public CityController(IMapperService mapperService, ICityDomainService cityDomainService)
+        public CityApiController(IMapperService mapperService, ICityDomainService cityDomainService)
         {
             _mapperService = mapperService;
             _cityDomainService = cityDomainService;
