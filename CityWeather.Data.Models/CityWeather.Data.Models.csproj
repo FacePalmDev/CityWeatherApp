@@ -96,7 +96,7 @@
       <LastGenOutput>CityWeather.cs</LastGenOutput>
       <DependentUpon>CityWeather.edmx</DependentUpon>
     </Content>
-    <Content Include="Scripts\selectcities.sql" />
+    <Content Include="Scripts\SelectAndClean.sql" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
