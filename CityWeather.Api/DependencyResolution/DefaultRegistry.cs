@@ -49,12 +49,11 @@ namespace CityWeather.Api.DependencyResolution
                     scan.WithDefaultConventions();
                 });
 
-
             For<IMapperService>().Use<MapperService>().Singleton();
             For<CityWeatherContainer>().Use<CityWeatherContainer>().Singleton();
 
-            For<IRepository<CityWeatherContainer, City>>().Use<Repository<CityWeatherContainer, City>>();
-            // For(typeof(IRepository<,>)).Use(typeof(Repository<,>));
+            For(typeof(IRepository<,>)).Use(typeof(Repository<,>));
+
         }
 
         #endregion
