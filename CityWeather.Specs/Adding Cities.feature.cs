@@ -100,12 +100,10 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
  testRunner.Given("That no example cities exist in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
- testRunner.But("That the city \"Oxford\" does not exist in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "But ");
-#line 9
  testRunner.When("the system is instructed to add the city \"Oxford\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 10
+#line 9
  testRunner.Then("the city \"Oxford\" should be present in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 11
+#line 10
  testRunner.And("the total number of cities should equal 1.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -117,38 +115,19 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void UserAttemptsToAddAdditionalCities()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User attempts to add additional cities", null, ((string[])(null)));
+#line 12
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
 #line 13
-this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
+ testRunner.Given("That example cities already exist in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 14
- testRunner.Given("That example cities already exist in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 15
  testRunner.But("the city \"Oxford\" does not exist in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "But ");
-#line 16
+#line 15
  testRunner.When("the system is instructed to add the city \"Oxford\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 17
+#line 16
  testRunner.Then("the city \"Oxford\" should be present in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 18
+#line 17
  testRunner.And("the total number of cities should equal 3.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("User attempts to add a city that already exists")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Adding Cities")]
-        public virtual void UserAttemptsToAddACityThatAlreadyExists()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User attempts to add a city that already exists", null, ((string[])(null)));
-#line 20
-this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
-#line 21
- testRunner.Given("That example cities already exist in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 22
- testRunner.When("the system is instructed to add the city \"London\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 23
- testRunner.Then("the system should raise an error saying \"The current city already exists\".", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

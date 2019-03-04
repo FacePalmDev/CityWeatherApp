@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Web.Http;
 using CityWeather.Api.Models;
+using CityWeather.Common.Mappings;
 using CityWeather.Data.Contracts.Services;
 using CityWeather.Domain.Contracts;
 using CityWeather.Domain.Models;

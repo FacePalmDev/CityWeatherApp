@@ -1,8 +1,16 @@
 ﻿using System.Collections.Generic;
 using TechTalk.SpecFlow;
 using System.Linq;
+using CityWeather.Api.Controllers;
+using CityWeather.Api.DependencyResolution;
+using CityWeather.Api.Models;
+using CityWeather.Common.Mappings;
 using CityWeather.Data.Contracts;
+using CityWeather.Data.Contracts.Services;
 using CityWeather.Data.Models;
+using CityWeather.Data.Models.Dtos;
+using CityWeather.Data.Services;
+using CityWeather.Domain;
 using FluentAssertions;
 using Moq;
 
@@ -13,51 +21,81 @@ namespace CityWeather.Specs
     [Binding]
     public class AddingCitiesSteps
     {
-        private List<City> _systemCities;
+        private List<City> _exampleCityEntities;
         private Mock<IRepository<CityWeatherContext, City>> _mockCityRepository;
+        private Mock<IUnitOfWork> _mockUnitOfWork;
+        private MapperService _mapperService;
+        private CityApiController _cityApiController;
+
+        private readonly List<CityApiModel> _exampleCityApiModels;
+
+        public AddingCitiesSteps()
+        {
+            _exampleCityApiModels = new List<CityApiModel>() {
+             new CityApiModel() { Name = "London" },
+             new CityApiModel() { Name = "Oxford" },
+             new CityApiModel() { Name = "Sheffield" }
+         };
+        }
 
         [BeforeScenario()]
         public void BeforeScenario()
         {
+            _mockUnitOfWork = new Mock<IUnitOfWork>();
+            _mockUnitOfWork.Setup(x => x.Complete()).Verifiable();
+
             _mockCityRepository = new Mock<IRepository<CityWeatherContext, City>>();
-            _mockCityRepository.Setup(x => x.Read()).Returns(_systemCities);
+            _mockCityRepository.Setup(x => x.Read()).Returns(_exampleCityEntities);
+            _mockCityRepository.Setup(x => x.Create(It.IsAny<City>()))
+                .Callback((City city) => _exampleCityEntities.Add(city));
+
+            _mapperService = new MapperService();
+
+            var cityDataService = new CityDataService(
+                _mockCityRepository.Object,
+                _mockUnitOfWork.Object,
+                _mapperService);
+
+            var cityDomainService = new CityDomainService(_mapperService, cityDataService);
+
+            _cityApiController = new CityApiController(_mapperService, cityDomainService);
         }
 
         [Given(@"That no example cities exist in the system")]
         public void GivenThatNoExampleCitiesExistInTheSystem()
         {
-            _systemCities = new List<City>();
+            _exampleCityEntities = new List<City>();
         }
 
-        /* I've put two attributes here just to make the feature file language cleaner */
         [Given(@"That the city ""(.*)"" does not exist in the system")]
         [Given(@"the city ""(.*)"" does not exist in the system")]
         public void GivenThatTheCityDoesNotExistInTheSystem_(string cityName)
         {
-            _systemCities.RemoveAll(x=>x.Name == cityName);
+            _exampleCityEntities.RemoveAll(x => x.Name == cityName);
         }
-        
+
         [Given(@"That example cities already exist in the system")]
         public void GivenThatExampleCitiesAlreadyExistInTheSystem()
         {
-            _systemCities = new List<City>()
+            _exampleCityEntities = new List<City>()
             {
-                new City() { Name = "London" },
-                new City() { Name = "Oxford" },
-                new City() { Name = "Sheffield" }
+                new City() {Name = "London"},
+                new City() {Name = "Oxford"},
+                new City() {Name = "Sheffield"}
             };
         }
-        
+
         [When(@"the system is instructed to add the city ""(.*)""")]
         public void WhenTheSystemIsInstructedToAddTheCity(string cityName)
         {
-            _systemCities.Add(new City() { Name = cityName });
+            var exampleCity = _exampleCityApiModels.First(x => x.Name == cityName);
+            _cityApiController.Post(exampleCity);
         }
 
         [Then(@"the city ""(.*)"" should be present in the system")]
         public void ThenTheCityShouldBePresentInTheSystem(string cityName)
         {
-            _systemCities
+            _exampleCityEntities
                 .FirstOrDefault(x => x.Name == cityName)
                 .Should().NotBeNull();
         }
@@ -65,14 +103,9 @@ namespace CityWeather.Specs
         [Then(@"the total number of cities should equal (.*)\.")]
         public void ThenTheTotalNumberOfCitiesShouldEqual_(int expectedCityCount)
         {
-            _systemCities.Count().Should().Be(expectedCityCount);
+            _exampleCityEntities.Count().Should().Be(expectedCityCount);
 
         }
 
-        [Then(@"the system should raise an error saying ""(.*)""\.")]
-        public void ThenTheSystemShouldRaiseAnErrorSaying_(string p0)
-        {
-            ScenarioContext.Current.Pending();
-        }
     }
 }

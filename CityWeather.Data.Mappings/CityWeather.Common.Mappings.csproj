@@ -52,6 +52,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CityWeather.Api.Models\CityWeather.Api.Models.csproj">
+      <Project>{8FB46B00-8E8D-4AFC-8992-329D6E283CA5}</Project>
+      <Name>CityWeather.Api.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CityWeather.Data.Contracts\CityWeather.Data.Contracts.csproj">
       <Project>{A3641871-D016-4EAD-8DAA-CFF6BB00DF3D}</Project>
       <Name>CityWeather.Data.Contracts</Name>
