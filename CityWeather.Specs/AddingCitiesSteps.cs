@@ -26,7 +26,7 @@ namespace CityWeather.Specs
         private Mock<IRepository<CityWeatherContext, City>> _mockCityRepository;
         private Mock<IUnitOfWork> _mockUnitOfWork;
         private MapperService _mapperService;
-        private CityApiController _cityApiController;
+        private CityController _cityApiController;
 
         [BeforeScenario()]
         public void BeforeScenario()
@@ -48,7 +48,7 @@ namespace CityWeather.Specs
 
             var cityDomainService = new CityDomainService(_mapperService, cityDataService);
 
-            _cityApiController = new CityApiController(_mapperService, cityDomainService);
+            _cityApiController = new CityController(_mapperService, cityDomainService);
         }
 
         [Given(@"That no example cities exist in the system")]
