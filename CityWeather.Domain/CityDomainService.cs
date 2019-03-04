@@ -11,9 +11,9 @@ namespace CityWeather.Domain
         private readonly IMapperService _mapperService;
         private readonly ICityDataService _cityDataService;
 
-        public CityDomainService(IMapperFactory mapperFactory, ICityDataService cityDataService)
+        public CityDomainService(IMapperService mapperService, ICityDataService cityDataService)
         {
-            _mapperService = mapperFactory.GetMapper();
+            _mapperService = mapperService;
             _cityDataService = cityDataService;
         }
 

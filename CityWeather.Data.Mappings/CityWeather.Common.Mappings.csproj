@@ -44,9 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMapperFactory.cs" />
     <Compile Include="MapperService.cs" />
-    <Compile Include="MapperFactory.cs" />
     <Compile Include="Profiles\CityProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -61,6 +59,10 @@
     <ProjectReference Include="..\CityWeather.Data.Models\CityWeather.Data.Models.csproj">
       <Project>{647A5DF2-57CB-472C-8242-6207EA39E6A6}</Project>
       <Name>CityWeather.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CityWeather.Domain.Contracts\CityWeather.Domain.Contracts.csproj">
+      <Project>{958C598B-A818-42F9-83C6-DFD764A2554B}</Project>
+      <Name>CityWeather.Domain.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\CityWeather.Domain.Models\CityWeather.Domain.Models.csproj">
       <Project>{6788B23A-9EC6-48DD-9431-23357E757D20}</Project>

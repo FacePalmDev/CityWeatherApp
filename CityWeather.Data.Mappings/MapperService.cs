@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CityWeather.Common.Mappings.Profiles;
 using CityWeather.Data.Contracts.Services;
 
 namespace CityWeather.Common.Mappings
@@ -7,9 +8,14 @@ namespace CityWeather.Common.Mappings
     {
         private readonly IMapper _mapper;
 
-        public MapperService(IMapper mapper)
+        public MapperService()
         {
-            _mapper = mapper;
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<CityMappingProfile>();
+            });
+
+            _mapper = new Mapper(config);
         }
 
         public TDest Map<TDest>(object source)

@@ -17,7 +17,6 @@ namespace CityWeather.Data.Tests
         private ICityDataService _sutDataService;
         private readonly Mock<IRepository<CityWeatherContext,City>> _mockRepo;
         private readonly Mock<IUnitOfWork> _mockUow;
-        private readonly Mock<IMapperFactory> _mockMapperFactory;
         private readonly Mock<IMapperService> _mockMapperService;
 
         public ServiceTests()
@@ -39,15 +38,12 @@ namespace CityWeather.Data.Tests
                 .Setup(x=>x.Map<City>(It.IsAny<CityDto>()))
                 .Verifiable();
 
-            _mockMapperFactory = new Mock<IMapperFactory>();
-            _mockMapperFactory.Setup(x => x.GetMapper()).Returns(_mockMapperService.Object);
-
         }
 
         [TestInitialize()]
         public void Startup()
         {
-            _sutDataService = new CityDataService(_mockRepo.Object, _mockUow.Object, _mockMapperFactory.Object);
+            _sutDataService = new CityDataService(_mockRepo.Object, _mockUow.Object, _mockMapperService.Object);
         }
 
         [TestMethod]

@@ -15,7 +15,6 @@ namespace CityWeather.Domain.Tests
     {
         private ICityDomainService _sutDomainService;
         private Mock<IMapperService> _mockMapperService;
-        private Mock<IMapperFactory> _mockMapperFactory;
         private Mock<ICityDataService> _mockDataService;
 
         [TestInitialize()]
@@ -27,16 +26,14 @@ namespace CityWeather.Domain.Tests
                 .Setup(x => x.Map<CityDto>(It.IsAny<CityApiModel>()))
                 .Verifiable();
 
-            _mockMapperFactory = new Mock<IMapperFactory>();
-            _mockMapperFactory.Setup(x => x.GetMapper()).Returns(_mockMapperService.Object);
-
+          
             _mockDataService = new Mock<ICityDataService>();
 
             _mockDataService
                 .Setup(x => x.CreateCity(It.IsAny<CityDto>()))
                 .Verifiable();
             ;
-            _sutDomainService = new CityDomainService(_mockMapperFactory.Object, _mockDataService.Object);
+            _sutDomainService = new CityDomainService(_mockMapperService.Object, _mockDataService.Object);
         }
 
         [TestMethod]

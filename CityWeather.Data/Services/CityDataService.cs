@@ -12,11 +12,11 @@ namespace CityWeather.Data.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapperService _mapperService;
 
-        public CityDataService(IRepository<CityWeatherContext, City> repository, IUnitOfWork unitOfWork, IMapperFactory mapperFactory)
+        public CityDataService(IRepository<CityWeatherContext, City> repository, IUnitOfWork unitOfWork, IMapperService mapperService)
         {
             _repository = repository;
             _unitOfWork = unitOfWork;
-            _mapperService = mapperFactory.GetMapper();
+            _mapperService = mapperService;
         }
  
         public void CreateCity(CityDto newCity)

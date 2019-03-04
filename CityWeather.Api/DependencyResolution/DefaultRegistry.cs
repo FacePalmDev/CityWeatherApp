@@ -36,8 +36,6 @@ namespace CityWeather.Api.DependencyResolution {
             Scan(
                 scan => {
                     scan.TheCallingAssembly();
-                    scan.AssemblyContainingType<IMapperFactory>();
-                    scan.AssemblyContainingType<MapperFactory>();
                     scan.AssemblyContainingType<ICityDomainService>();
                     scan.AssemblyContainingType<CityDomainService>();
                     scan.AssemblyContainingType<ICityDataService>();
@@ -48,7 +46,8 @@ namespace CityWeather.Api.DependencyResolution {
                 });
 
             For(typeof(IRepository<,>)).Use(typeof(Repository<,>));
-            // For<>().Use<>();
+
+            For<IMapperService>().Use<MapperService>().Singleton();
         }
 
         #endregion
