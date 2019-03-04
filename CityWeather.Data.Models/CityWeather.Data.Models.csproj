@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CityDomainModel.cs">
+    <Compile Include="City.cs">
       <DependentUpon>CityWeather.tt</DependentUpon>
     </Compile>
     <Compile Include="CityWeather.Context.cs">
@@ -96,6 +96,7 @@
       <LastGenOutput>CityWeather.cs</LastGenOutput>
       <DependentUpon>CityWeather.edmx</DependentUpon>
     </Content>
+    <Content Include="Scripts\selectcities.sql" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

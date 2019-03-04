@@ -15,13 +15,13 @@ namespace CityWeather.Data.Tests
     public class ServiceTests
     {
         private ICityDataService _sutDataService;
-        private readonly Mock<IRepository<CityWeatherContext,City>> _mockRepo;
+        private readonly Mock<IRepository<CityWeatherContainer, City>> _mockRepo;
         private readonly Mock<IUnitOfWork> _mockUow;
         private readonly Mock<IMapperService> _mockMapperService;
 
         public ServiceTests()
         {
-            _mockRepo = new Mock<IRepository<CityWeatherContext, City>>();
+            _mockRepo = new Mock<IRepository<CityWeatherContainer, City>>();
 
             _mockRepo
                 .Setup(x => x.Create(It.IsAny<City>()))
