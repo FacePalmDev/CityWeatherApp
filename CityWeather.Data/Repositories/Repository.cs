@@ -5,7 +5,7 @@ using CityWeather.Data.Contracts;
 
 namespace CityWeather.Data.Repositories
 {
-    internal class Repository<TContext, TEntity> : IRepository<TEntity> 
+    public class Repository<TContext, TEntity> : IRepository<TContext, TEntity> 
         where TContext: DbContext 
         where TEntity: class
     {

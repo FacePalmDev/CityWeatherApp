@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using AutoMapper;
+using CityWeather.Common.Mappings.Profiles;
 using CityWeather.Data.Contracts.Services;
 
 namespace CityWeather.Common.Mappings
@@ -11,7 +12,7 @@ namespace CityWeather.Common.Mappings
         public MapperFactory()
         {
             _config = new MapperConfiguration(cfg => {
-                cfg.AddProfiles(Assembly.GetExecutingAssembly());
+                cfg.AddProfile<CityMappingCreator>();
             });
         }
         

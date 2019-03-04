@@ -11,22 +11,22 @@ namespace CityWeather.Data.Tests
     [TestClass]
     public class RepositoryTests
     {
-        private Repository<CityWeatherContainer, City> _sutRepo;
-        private readonly DbContextMock<CityWeatherContainer> _mockContext;
+        private Repository<CityWeatherContext, City> _sutRepo;
+        private readonly DbContextMock<CityWeatherContext> _mockContext;
         private readonly DbSetMock<City> _mockCitiesDbSet;
 
         public RepositoryTests()
         {
             var initialCities = new List<City>();
 
-            _mockContext = new DbContextMock<CityWeatherContainer>();
+            _mockContext = new DbContextMock<CityWeatherContext>();
             _mockCitiesDbSet= _mockContext.CreateDbSetMock(x => x.Cities, initialCities);
         }
 
         [TestInitialize()]
         public void Startup()
         {
-            _sutRepo = new Repository<CityWeatherContainer, City>(_mockContext.Object);
+            _sutRepo = new Repository<CityWeatherContext, City>(_mockContext.Object);
         }
 
         [TestMethod]

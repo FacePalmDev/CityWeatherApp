@@ -62,6 +62,10 @@
       <Project>{647A5DF2-57CB-472C-8242-6207EA39E6A6}</Project>
       <Name>CityWeather.Data.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CityWeather.Domain.Models\CityWeather.Domain.Models.csproj">
+      <Project>{6788B23A-9EC6-48DD-9431-23357E757D20}</Project>
+      <Name>CityWeather.Domain.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

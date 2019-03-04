@@ -1,22 +1,22 @@
-﻿using CityWeather.Data.Contracts;
+﻿using CityWeather.Common.Mappings;
+using CityWeather.Data.Contracts;
 using CityWeather.Data.Contracts.Services;
 using CityWeather.Data.Models;
 using CityWeather.Data.Models.Dtos;
-using CityWeather.Domain.Models;
 
 namespace CityWeather.Data.Services
 {
     public class CityDataService: ICityDataService
     {
-        private readonly IRepository<City> _repository;
+        private readonly IRepository<CityWeatherContext, City> _repository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapperService _mapperService;
 
-        public CityDataService(IRepository<City> repository, IUnitOfWork unitOfWork, IMapperService mapperService)
+        public CityDataService(IRepository<CityWeatherContext, City> repository, IUnitOfWork unitOfWork, IMapperFactory mapperFactory)
         {
             _repository = repository;
             _unitOfWork = unitOfWork;
-            _mapperService = mapperService;
+            _mapperService = mapperFactory.GetMapper();
         }
  
         public void CreateCity(CityDto newCity)

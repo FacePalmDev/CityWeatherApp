@@ -14,12 +14,12 @@ namespace CityWeather.Specs
     public class AddingCitiesSteps
     {
         private List<City> _systemCities;
-        private Mock<IRepository<City>> _mockCityRepository;
+        private Mock<IRepository<CityWeatherContext, City>> _mockCityRepository;
 
         [BeforeScenario()]
         public void BeforeScenario()
         {
-            _mockCityRepository = new Mock<IRepository<City>>();
+            _mockCityRepository = new Mock<IRepository<CityWeatherContext, City>>();
             _mockCityRepository.Setup(x => x.Read()).Returns(_systemCities);
         }
 

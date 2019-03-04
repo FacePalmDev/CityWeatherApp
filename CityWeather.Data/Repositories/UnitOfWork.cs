@@ -4,11 +4,11 @@ using CityWeather.Data.Models;
 
 namespace CityWeather.Data.Repositories
 {
-    internal class UnitOfWork: IUnitOfWork
+    public class UnitOfWork: IUnitOfWork
     {
-        private readonly CityWeatherContainer _context;
+        private readonly CityWeatherContext _context;
 
-        public UnitOfWork(CityWeatherContainer context)
+        public UnitOfWork(CityWeatherContext context)
         {
             _context = context;
         }

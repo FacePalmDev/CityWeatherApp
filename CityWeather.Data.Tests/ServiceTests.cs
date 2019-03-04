@@ -1,4 +1,5 @@
-﻿using CityWeather.Data.Contracts;
+﻿using CityWeather.Common.Mappings;
+using CityWeather.Data.Contracts;
 using CityWeather.Data.Contracts.Services;
 using CityWeather.Data.Models;
 using FluentAssertions;
@@ -14,13 +15,14 @@ namespace CityWeather.Data.Tests
     public class ServiceTests
     {
         private ICityDataService _sutDataService;
-        private readonly Mock<IRepository<City>> _mockRepo;
+        private readonly Mock<IRepository<CityWeatherContext,City>> _mockRepo;
         private readonly Mock<IUnitOfWork> _mockUow;
+        private readonly Mock<IMapperFactory> _mockMapperFactory;
         private readonly Mock<IMapperService> _mockMapperService;
 
         public ServiceTests()
         {
-            _mockRepo = new Mock<IRepository<City>>();
+            _mockRepo = new Mock<IRepository<CityWeatherContext, City>>();
 
             _mockRepo
                 .Setup(x => x.Create(It.IsAny<City>()))
@@ -33,17 +35,19 @@ namespace CityWeather.Data.Tests
                 .Verifiable();
 
             _mockMapperService = new Mock<IMapperService>();
-
             _mockMapperService
                 .Setup(x=>x.Map<City>(It.IsAny<CityDto>()))
                 .Verifiable();
-                
+
+            _mockMapperFactory = new Mock<IMapperFactory>();
+            _mockMapperFactory.Setup(x => x.GetMapper()).Returns(_mockMapperService.Object);
+
         }
 
         [TestInitialize()]
         public void Startup()
         {
-            _sutDataService = new CityDataService(_mockRepo.Object, _mockUow.Object, _mockMapperService.Object);
+            _sutDataService = new CityDataService(_mockRepo.Object, _mockUow.Object, _mockMapperFactory.Object);
         }
 
         [TestMethod]

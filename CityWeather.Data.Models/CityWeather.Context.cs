@@ -13,10 +13,10 @@ namespace CityWeather.Data.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CityWeatherContainer : DbContext
+    public partial class CityWeatherContext : DbContext
     {
-        public CityWeatherContainer()
-            : base("name=CityWeatherContainer")
+        public CityWeatherContext()
+            : base("name=CityWeatherContext")
         {
         }
     
