@@ -9,7 +9,7 @@ namespace CityWeather.Specs
         [Given(@"The city ""(.*)"" exists in the system")]
         public void GivenTheCityExistsInTheSystem(string cityName)
         {
-            ScenarioContext.Current.Pending();
+            
         }
         
         [When(@"The search term ""(.*)"" is used")]

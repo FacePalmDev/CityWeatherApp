@@ -91,6 +91,7 @@
       <DependentUpon>Adding Cities.feature</DependentUpon>
     </Compile>
     <Compile Include="AddingCitiesSteps.cs" />
+    <Compile Include="TestHelpers\EntityModelTestHelper.cs" />
     <Compile Include="SearchingCities.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -98,6 +99,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchingCitiesSteps.cs" />
+    <Compile Include="TestHelpers\ApiModelTestHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Adding Cities.feature">

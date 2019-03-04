@@ -11,6 +11,7 @@ using CityWeather.Data.Models;
 using CityWeather.Data.Models.Dtos;
 using CityWeather.Data.Services;
 using CityWeather.Domain;
+using CityWeather.Specs.TestHelpers;
 using FluentAssertions;
 using Moq;
 
@@ -26,17 +27,6 @@ namespace CityWeather.Specs
         private Mock<IUnitOfWork> _mockUnitOfWork;
         private MapperService _mapperService;
         private CityApiController _cityApiController;
-
-        private readonly List<CityApiModel> _exampleCityApiModels;
-
-        public AddingCitiesSteps()
-        {
-            _exampleCityApiModels = new List<CityApiModel>() {
-             new CityApiModel() { Name = "London" },
-             new CityApiModel() { Name = "Oxford" },
-             new CityApiModel() { Name = "Sheffield" }
-         };
-        }
 
         [BeforeScenario()]
         public void BeforeScenario()
@@ -77,18 +67,13 @@ namespace CityWeather.Specs
         [Given(@"That example cities already exist in the system")]
         public void GivenThatExampleCitiesAlreadyExistInTheSystem()
         {
-            _exampleCityEntities = new List<City>()
-            {
-                new City() {Name = "London"},
-                new City() {Name = "Oxford"},
-                new City() {Name = "Sheffield"}
-            };
+            _exampleCityEntities = EntityModelTestHelper.GetCities().ToList();
         }
 
         [When(@"the system is instructed to add the city ""(.*)""")]
         public void WhenTheSystemIsInstructedToAddTheCity(string cityName)
         {
-            var exampleCity = _exampleCityApiModels.First(x => x.Name == cityName);
+            var exampleCity = ApiModelTestHelper.GetExampleCities().First(x => x.Name == cityName);
             _cityApiController.Post(exampleCity);
         }
 
@@ -104,7 +89,6 @@ namespace CityWeather.Specs
         public void ThenTheTotalNumberOfCitiesShouldEqual_(int expectedCityCount)
         {
             _exampleCityEntities.Count().Should().Be(expectedCityCount);
-
         }
 
     }
