@@ -12,7 +12,12 @@ namespace CityWeather.Common.Mappings.Profiles
         {
             CreateMap<CityApiModel, CityDomainModel > ().ReverseMap();
             CreateMap<CityDomainModel, CityDto>().ReverseMap();
-            CreateMap<CityDto, City>().ReverseMap();
+            CreateMap<CityDto, City>()
+                .ForMember(
+                    dest => dest.CountryCode,
+                    opt => opt.MapFrom(src => src.Country2LetterCode))
+                .ReverseMap();
+
         }
     }
 }

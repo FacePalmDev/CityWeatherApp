@@ -14,6 +14,11 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="State" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CountryCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TouristRating" Type="smallint" Nullable="false" />
+    <Property Name="EstablishedDate" Type="datetime" Nullable="false" />
+    <Property Name="EstimatedPopulation" Type="int" Nullable="false" />
   </EntityType>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -28,6 +33,11 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="State" Type="String" Nullable="false" />
+          <Property Name="CountryCode" Type="String" Nullable="false" />
+          <Property Name="TouristRating" Type="Int16" Nullable="false" />
+          <Property Name="EstablishedDate" Type="DateTime" Nullable="false" />
+          <Property Name="EstimatedPopulation" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -40,6 +50,11 @@
         <MappingFragment StoreEntitySet="Cities">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="TouristRating" ColumnName="TouristRating" />
+          <ScalarProperty Name="EstablishedDate" ColumnName="EstablishedDate" />
+          <ScalarProperty Name="EstimatedPopulation" ColumnName="EstimatedPopulation" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
