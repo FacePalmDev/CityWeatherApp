@@ -1,6 +1,7 @@
 ﻿using CityWeather.Common.Settings;
 using RestCountries.Models;
 using RestServices.Domain;
+using RestServices.Domain.Contracts;
 using RestSharp;
 
 namespace RestCountries.Domain.Services

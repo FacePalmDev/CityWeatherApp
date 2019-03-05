@@ -150,9 +150,13 @@
       <Project>{FEF98203-8648-48A7-BACE-8C7364F468A3}</Project>
       <Name>CityWeather.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RestCountries.Api\RestCountries.Domain.Services.csproj">
+    <ProjectReference Include="..\RestCountries.Api\RestCountries.Domain.csproj">
       <Project>{06BB78B4-F5E8-4DD5-A3C7-1A8164C98D6B}</Project>
-      <Name>RestCountries.Domain.Services</Name>
+      <Name>RestCountries.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestServices.Contracts\RestServices.Domain.Contracts.csproj">
+      <Project>{2AB08275-D5AA-4C81-8941-A0A6A82D5B70}</Project>
+      <Name>RestServices.Domain.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\RestServices\RestServices.Domain.csproj">
       <Project>{c46e63b1-04d5-497c-b484-f9be9906de21}</Project>

@@ -42,7 +42,7 @@ namespace CityWeather.Specs
 
             _mockCityRepository = new Mock<IRepository<CityWeatherContainer, City>>();
             _mockCityRepository.Setup(x => x.Read()).Returns(_exampleCityEntities);
-
+  
             // thought about mocking this, but I don't think a quick REST call is a problem here;
             // besides specs can be longer running tests that also test integration unlike unit tests. 
             // if the 3rd party API changed and broke our system it would be nice to know about it.

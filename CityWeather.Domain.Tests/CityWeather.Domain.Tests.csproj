@@ -102,13 +102,17 @@
       <Project>{fef98203-8648-48a7-bace-8c7364f468a3}</Project>
       <Name>CityWeather.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RestCountries.Api\RestCountries.Domain.Services.csproj">
+    <ProjectReference Include="..\RestCountries.Api\RestCountries.Domain.csproj">
       <Project>{06BB78B4-F5E8-4DD5-A3C7-1A8164C98D6B}</Project>
-      <Name>RestCountries.Domain.Services</Name>
+      <Name>RestCountries.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\RestCountries.Models\RestCountries.Models.csproj">
       <Project>{76ECD6B6-31BF-49F5-B3F2-D73D1C40766C}</Project>
       <Name>RestCountries.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestServices.Contracts\RestServices.Domain.Contracts.csproj">
+      <Project>{2AB08275-D5AA-4C81-8941-A0A6A82D5B70}</Project>
+      <Name>RestServices.Domain.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
