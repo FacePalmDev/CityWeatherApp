@@ -88,7 +88,7 @@ namespace CityWeather.Specs
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void SearchForPresentCity(string searchTerm, string result1, string result2, string resultCount, string[] exampleTags)
+        public virtual void SearchForPresentCity(string searchTerm, string result1, string result2, string country1, string country2, string resultCount, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for present city", null, exampleTags);
 #line 6
@@ -108,6 +108,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And(string.Format("The search results should contain \"{0}\"", result2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
  testRunner.And(string.Format("The number of results returned should be {0}", resultCount), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 14
+ testRunner.And(string.Format("The search results should contain country data for \"{0}\"", country1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 15
+ testRunner.And(string.Format("The search results should contain country data for \"{0}\"", country2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -119,11 +123,13 @@ this.ScenarioInitialize(scenarioInfo);
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:searchTerm", "london")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:result1", "London")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:result2", "Londonderry")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:country1", "GB")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:country2", "IRL")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:resultCount", "2")]
         public virtual void SearchForPresentCity_London()
         {
 #line 6
-this.SearchForPresentCity("london", "London", "Londonderry", "2", ((string[])(null)));
+this.SearchForPresentCity("london", "London", "Londonderry", "GB", "IRL", "2", ((string[])(null)));
 #line hidden
         }
         
@@ -134,11 +140,13 @@ this.SearchForPresentCity("london", "London", "Londonderry", "2", ((string[])(nu
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:searchTerm", "man")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:result1", "Manchester")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:result2", "Manchester")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:country1", "GB")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:country2", "GB")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:resultCount", "1")]
         public virtual void SearchForPresentCity_Man()
         {
 #line 6
-this.SearchForPresentCity("man", "Manchester", "Manchester", "1", ((string[])(null)));
+this.SearchForPresentCity("man", "Manchester", "Manchester", "GB", "GB", "1", ((string[])(null)));
 #line hidden
         }
         
@@ -149,11 +157,13 @@ this.SearchForPresentCity("man", "Manchester", "Manchester", "1", ((string[])(nu
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:searchTerm", "Londonderry")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:result1", "Londonderry")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:result2", "Londonderry")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:country1", "IRL")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:country2", "IRL")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:resultCount", "1")]
         public virtual void SearchForPresentCity_Londonderry()
         {
 #line 6
-this.SearchForPresentCity("Londonderry", "Londonderry", "Londonderry", "1", ((string[])(null)));
+this.SearchForPresentCity("Londonderry", "Londonderry", "Londonderry", "IRL", "IRL", "1", ((string[])(null)));
 #line hidden
         }
         
@@ -163,16 +173,16 @@ this.SearchForPresentCity("Londonderry", "Londonderry", "Londonderry", "1", ((st
         public virtual void SearchForNon_PresentCity()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for non-present city", null, ((string[])(null)));
-#line 23
+#line 25
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 24
- testRunner.Given("The city \"London\" exists in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 25
- testRunner.And("The city \"Manchester\" exists in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 26
- testRunner.When("The search term \"Londonderry\" is used", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("The city \"London\" exists in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 27
+ testRunner.And("The city \"Manchester\" exists in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 28
+ testRunner.When("The search term \"Londonderry\" is used", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 29
  testRunner.Then("The number of results returned should be 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

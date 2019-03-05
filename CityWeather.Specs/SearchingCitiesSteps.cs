@@ -85,5 +85,12 @@ namespace CityWeather.Specs
             _lastSearchResult.Count().Should().Be(count);
 
         }
+
+        [Then(@"The seach results should contain country data for ""(.*)""")]
+        public void ThenTheSeachResultsShouldContainCountryDataFor()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
     }
 }
