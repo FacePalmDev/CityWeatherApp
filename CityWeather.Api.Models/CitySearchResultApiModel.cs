@@ -19,8 +19,5 @@ namespace CityWeather.Api.Models
         public DateTime EstablishedDate { get; set; }
         public int EstimatedPopulation { get; set; }
 
-        public string IsoCountry2LetterCode { get; set; }
-        public string IsoCountry3LetterCode { get; set; }
-
     }
 }

@@ -15,7 +15,5 @@ namespace CityWeather.Domain.Models
         public DateTime EstablishedDate { get; set; }
         public int EstimatedPopulation { get; set; }
 
-        public string Country2LetterCode { get; set; }
-        public string Country3LetterCode { get; set; }
     }
 }
