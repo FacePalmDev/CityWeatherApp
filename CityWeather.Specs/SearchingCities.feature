@@ -17,7 +17,7 @@ Examples:
 	| searchTerm	| result1		| result2	  | resultCount |
 	| london		| London		| Londonderry | 2           |
 	| man			| Manchester	| Manchester  | 1           |
-	| Londonderry	| Londonderry	| Londonderry | 2           |
+	| Londonderry	| Londonderry	| Londonderry | 1           |
 
 
 Scenario: Search for non-present city

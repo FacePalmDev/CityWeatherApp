@@ -1,4 +1,5 @@
-﻿using CityWeather.Api.Models;
+﻿using System;
+using CityWeather.Api.Models;
 using CityWeather.Common.Mappings;
 using CityWeather.Data.Contracts.Services;
 using CityWeather.Data.Models.Dtos;
@@ -11,7 +12,7 @@ using Moq;
 namespace CityWeather.Domain.Tests
 {
     [TestClass]
-    public class ServiceTests
+    public class CityDomainServiceTests
     {
         private ICityDomainService _sutDomainService;
         private Mock<IMapperService> _mockMapperService;

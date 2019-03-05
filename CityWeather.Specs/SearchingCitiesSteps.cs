@@ -5,9 +5,17 @@ using System.Runtime.CompilerServices;
 using Castle.Components.DictionaryAdapter;
 using CityWeather.Api.Controllers;
 using CityWeather.Api.Models;
+using CityWeather.Common.Mappings;
+using CityWeather.Data.Contracts;
+using CityWeather.Data.Contracts.Services;
 using CityWeather.Data.Models;
+using CityWeather.Data.Services;
+using CityWeather.Domain;
+using CityWeather.Domain.Contracts;
 using CityWeather.Specs.TestHelpers;
 using FluentAssertions;
+using Moq;
+using RestCountries.Api;
 using TechTalk.SpecFlow;
 
 namespace CityWeather.Specs
@@ -15,36 +23,69 @@ namespace CityWeather.Specs
     [Binding]
     public class SearchingCitiesSteps
     {
-        private List<CityApiModel> _cityEntities;
+
         public CitySearchController _citySearchController;
-        private IEnumerable<CitySearchResultApiModel>_lastSearchResult;
+        private IEnumerable<CitySearchResultApiModel> _lastSearchResult;
+        private IMapperService _mapperService;
+        private CitySearchDomainService _citySearchDomainService;
+        private List<City> _exampleCityEntities;
+        private Mock<IRepository<CityWeatherContainer, City>> _mockCityRepository;
+        private Mock<IUnitOfWork> _mockUnitOfWork;
+        private CityDataService _cityDataService;
+        private Mock<ICountryDataService> _mockCountryDataService;
 
         [BeforeScenario()]
         private void BeforeScenario()
         {
-            _cityEntities = new List<CityApiModel>();
-           // _citySearchController = new CitySearchController();
+            _exampleCityEntities = new List<City>();
+
+            _mapperService = new MapperService();
+
+            _mockUnitOfWork = new Mock<IUnitOfWork>();
+            _mockUnitOfWork.Setup(x => x.Complete()).Verifiable();
+
+            _mockCityRepository = new Mock<IRepository<CityWeatherContainer, City>>();
+            _mockCityRepository.Setup(x => x.Read()).Returns(_exampleCityEntities);
+
+            _mockCountryDataService = new Mock<ICountryDataService>();
+
+
+            _cityDataService = new CityDataService(_mockCityRepository.Object, _mockUnitOfWork.Object, _mapperService);
+            _citySearchDomainService =
+                new CitySearchDomainService(_mapperService, _cityDataService);
+
+            _citySearchController = new CitySearchController(_mapperService, _citySearchDomainService);
         }
 
         [Given(@"The city ""(.*)"" exists in the system")]
         public void GivenTheCityExistsInTheSystem(string cityName)
         {
-             var newCityApiModel = ApiModelTestHelper.CreateCityModel(cityName);
-            _cityEntities.Add(newCityApiModel);
+            var newCityApiModel = new City()
+            {
+                CountryCode = "GB",
+                EstablishedDate = new DateTime(),
+                EstimatedPopulation = 8787892,
+                Name = cityName,
+                Id = 0,
+                State = "SomeState",
+                TouristRating = 5
+            };
+
+            _exampleCityEntities.Add(newCityApiModel);
         }
-        
+
         [When(@"The search term ""(.*)"" is used")]
         public void WhenTheSearchTermIsUsed(string searchTerm)
         {
             _lastSearchResult = _citySearchController.Get(searchTerm);
         }
-        
+
         [Then(@"The search results should contain ""(.*)""")]
         public void ThenTheSearchResultsShouldContain(string cityName)
         {
-            _lastSearchResult.Any(x=>x.CityName == cityName).Should().BeTrue();
+            _lastSearchResult.Any(x => x.CityName == cityName).Should().BeTrue();
         }
-        
+
         [Then(@"The number of results returned should be (.*)")]
         public void ThenTheNumberOfResultsReturnedShouldBe(int count)
         {

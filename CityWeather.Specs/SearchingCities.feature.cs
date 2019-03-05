@@ -149,11 +149,11 @@ this.SearchForPresentCity("man", "Manchester", "Manchester", "1", ((string[])(nu
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:searchTerm", "Londonderry")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:result1", "Londonderry")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:result2", "Londonderry")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:resultCount", "2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:resultCount", "1")]
         public virtual void SearchForPresentCity_Londonderry()
         {
 #line 6
-this.SearchForPresentCity("Londonderry", "Londonderry", "Londonderry", "2", ((string[])(null)));
+this.SearchForPresentCity("Londonderry", "Londonderry", "Londonderry", "1", ((string[])(null)));
 #line hidden
         }
         

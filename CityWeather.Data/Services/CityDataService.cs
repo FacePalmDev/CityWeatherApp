@@ -1,4 +1,5 @@
-﻿using CityWeather.Common.Mappings;
+﻿using System.Collections.Generic;
+using CityWeather.Common.Mappings;
 using CityWeather.Data.Contracts;
 using CityWeather.Data.Contracts.Services;
 using CityWeather.Data.Models;
@@ -25,6 +26,11 @@ namespace CityWeather.Data.Services
 
             _repository.Create(cityEntity);
             _unitOfWork.Complete();
+        }
+
+        public IEnumerable<CityDto> GetCities()
+        {
+            return _mapperService.Map<IEnumerable<CityDto>>(_repository.Read());
         }
     }
 }
