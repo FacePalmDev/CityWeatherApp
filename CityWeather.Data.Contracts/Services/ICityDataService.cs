@@ -7,5 +7,7 @@ namespace CityWeather.Data.Contracts.Services
     {
         void CreateCity(CityDto newCity);
         IEnumerable<CityDto> GetCities();
+        void UpdateCity(int id, CityDto cityDtoModel);
+        void DeleteCity(int id);
     }
 }

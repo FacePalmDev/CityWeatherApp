@@ -23,8 +23,6 @@ namespace CityWeather.Api.Controllers
             var result =  _mapperService.Map<IEnumerable<CitySearchResultApiModel>>(citySearchResult);
             return result;
         }
-
-
    
     }
 }

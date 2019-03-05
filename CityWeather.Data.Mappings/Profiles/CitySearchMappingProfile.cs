@@ -18,6 +18,7 @@ namespace CityWeather.Common.Mappings.Profiles
 
             CreateMap<(CityDomainModel, CityWeatherReportDomainModel, CountrySummaryDomainModel), 
                     CitySearchResultDomainModel>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Item1.Id))
                 .ForMember(dest => dest.CityName, opt => opt.MapFrom(src => src.Item1.Name))
                 .ForMember(dest => dest.WeatherReport, opt => opt.MapFrom(src => src.Item2))
                 .ForMember(dest => dest.CountrySummary, opt => opt.MapFrom(src => src.Item3));

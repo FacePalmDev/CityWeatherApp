@@ -5,7 +5,7 @@ using RestServices.Domain;
 using RestServices.Domain.Contracts;
 using RestSharp;
 
-namespace RestCountries.Domain.Services
+namespace RestCountries.Domain
 {
     /// <summary>
     /// The Country Rest Service Helper.

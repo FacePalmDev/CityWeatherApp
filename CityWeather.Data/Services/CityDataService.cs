@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using CityWeather.Data.Contracts;
 using CityWeather.Data.Contracts.Services;
 using CityWeather.Data.Models;
@@ -30,6 +31,31 @@ namespace CityWeather.Data.Services
         public IEnumerable<CityDto> GetCities()
         {
             return _mapperService.Map<IEnumerable<CityDto>>(_repository.Read());
+        }
+
+        public void UpdateCity(int id, CityDto cityDtoModel)
+        {
+            var cityEntity = _mapperService.Map<City>(cityDtoModel);
+
+            _repository.Read().SingleOrDefault(x => x.Id == id);
+
+            var db = _repository.Context;
+            var original = db.Cities.Find(id);
+
+            cityEntity.Id = id;
+
+           if (original != null)
+           {
+               db.Entry(original).CurrentValues.SetValues(cityEntity);
+               db.SaveChanges();
+           }
+           _unitOfWork.Complete();
+        }
+
+        public void DeleteCity(int id)
+        {
+            _repository.Delete(id);
+            _unitOfWork.Complete();
         }
     }
 }

@@ -9,7 +9,6 @@ using CityWeather.Domain.Contracts;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using RestCountries.Domain.Services;
 using RestCountries.Models;
 using RestServices.Domain.Contracts;
 

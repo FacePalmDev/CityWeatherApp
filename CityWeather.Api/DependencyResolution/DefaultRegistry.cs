@@ -29,6 +29,9 @@ namespace CityWeather.Api.DependencyResolution
     using CityWeather.Common.Mappings;
     using CityWeather.Data.Repositories;
     using CityWeather.Data.Models;
+    using RestServices.Domain.Contracts;
+    using RestWeather.Domain;
+    using RestCountries.Domain;
 
     public class DefaultRegistry : Registry
     {
@@ -40,6 +43,9 @@ namespace CityWeather.Api.DependencyResolution
                 scan =>
                 {
                     scan.TheCallingAssembly();
+                    scan.AssemblyContainingType<IWeatherRestService>();
+                    scan.AssemblyContainingType<WeatherRestService>();
+                    scan.AssemblyContainingType<CountryRestService>();
                     scan.AssemblyContainingType<ICityDomainService>();
                     scan.AssemblyContainingType<CityDomainService>();
                     scan.AssemblyContainingType<ICityDataService>();

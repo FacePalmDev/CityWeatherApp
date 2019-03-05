@@ -31,7 +31,7 @@ namespace CityWeather.Api.Tests
                 {
                     new CitySearchResultApiModel
                     {
-                        CityId = 0,
+                        Id = 0,
                         CityName = "Lupeni"
                     }
                 });
@@ -44,7 +44,7 @@ namespace CityWeather.Api.Tests
                 {
                     new CitySearchResultDomainModel()
                     {
-                        CityId = 0,
+                        Id = 0,
                         CityName = "Lupeni"
                     }
                 });

@@ -17,14 +17,21 @@ namespace CityWeather.Api.Controllers
             _cityDomainService = cityDomainService;
         }
 
-        public string Get()
-        {
-            return "hello";
-        }
-
         public void Post([FromBody] CityApiModel city)
         {
             _cityDomainService.CreateCity(_mapperService.Map<CityDomainModel>(city));
+        }
+
+        // PUT: api/Default/5
+        public void Put(int id, [FromBody]CityApiModel city)
+        {
+            _cityDomainService.UpdateCity(id, _mapperService.Map<CityDomainModel>(city));
+        }
+
+        // DELETE: api/Default/5
+        public void Delete(int id)
+        {
+            _cityDomainService.DeleteCity(id);
         }
     }
 
