@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
 using CityWeather.Api.Models;
-using CityWeather.Data.Models.Dtos;
 using CityWeather.Domain.Models;
 using RestCountries.Models;
 

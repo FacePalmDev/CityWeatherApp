@@ -1,6 +1,4 @@
-﻿using System.CodeDom;
-using System.Data.Common;
-using System.Data.Entity.Validation;
+﻿using System.Data.Entity.Validation;
 using System.Linq;
 using System.Threading.Tasks;
 using CityWeather.Data.Contracts;

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using CityWeather.Common.Mappings;
 using CityWeather.Data.Contracts;
 using CityWeather.Data.Contracts.Services;
 using CityWeather.Data.Models;

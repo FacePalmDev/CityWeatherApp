@@ -1,5 +1,4 @@
-﻿using CityWeather.Common.Mappings;
-using CityWeather.Data.Contracts.Services;
+﻿using CityWeather.Data.Contracts.Services;
 using CityWeather.Data.Models.Dtos;
 using CityWeather.Domain.Contracts;
 using CityWeather.Domain.Models;

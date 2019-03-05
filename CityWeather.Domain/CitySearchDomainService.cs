@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using CityWeather.Data.Contracts.Services;
-using CityWeather.Data.Models.Dtos;
 using CityWeather.Domain.Contracts;
 using CityWeather.Domain.Models;
 using RestCountries.Domain.Services;
