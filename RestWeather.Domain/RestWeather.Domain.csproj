@@ -31,8 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="RestSharp, Version=106.6.9.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.6.9\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,14 +49,25 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CityWeather.Common.Settings\CityWeather.Common.Settings.csproj">
+      <Project>{03445D0D-A27E-412F-B912-4BAE2362AE0D}</Project>
+      <Name>CityWeather.Common.Settings</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RestServices.Contracts\RestServices.Domain.Contracts.csproj">
       <Project>{2AB08275-D5AA-4C81-8941-A0A6A82D5B70}</Project>
       <Name>RestServices.Domain.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestServices\RestServices.Domain.csproj">
+      <Project>{C46E63B1-04D5-497C-B484-F9BE9906DE21}</Project>
+      <Name>RestServices.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\RestWeather.Models\RestWeather.Models.csproj">
       <Project>{4C7472E4-E666-4E60-9C52-CEC99DCA58DE}</Project>
       <Name>RestWeather.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

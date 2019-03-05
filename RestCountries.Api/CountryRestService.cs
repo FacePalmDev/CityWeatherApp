@@ -1,4 +1,5 @@
-﻿using CityWeather.Common.Settings;
+﻿using System;
+using CityWeather.Common.Settings;
 using RestCountries.Models;
 using RestServices.Domain;
 using RestServices.Domain.Contracts;
@@ -10,8 +11,8 @@ namespace RestCountries.Domain.Services
     /// The Country Rest Service Helper.
     /// </summary>
     /// <seealso cref="Country" />
-    /// <seealso cref="RestCountries.Api.ICountryRestService" />
-    /// <inheritdoc cref="RestCountries.Api.ICountryRestService"/>
+    /// <seealso cref="ICountryRestService" />
+    /// <inheritdoc cref="ICountryRestService"/>
     public class CountryRestService : RestService<Country>, ICountryRestService
     {
 
@@ -22,7 +23,7 @@ namespace RestCountries.Domain.Services
         /// </summary>
         public CountryRestService()
         {
-            Client = new RestClient(UrlSettings.CountryApiBaseUrl);
+            Client = new RestClient(new Uri(UrlSettings.CountryApiBaseUrl));
         }
 
         /// <summary>
