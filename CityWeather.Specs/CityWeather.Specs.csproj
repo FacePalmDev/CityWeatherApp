@@ -154,6 +154,10 @@
       <Project>{06BB78B4-F5E8-4DD5-A3C7-1A8164C98D6B}</Project>
       <Name>RestCountries.Api</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RestServices\RestServices.csproj">
+      <Project>{c46e63b1-04d5-497c-b484-f9be9906de21}</Project>
+      <Name>RestServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
