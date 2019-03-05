@@ -14,52 +14,53 @@ namespace CityWeather.Domain
     {
         private readonly IMapperService _mapperService;
         private readonly ICityDataService _cityDataService;
+        private readonly ICountryRestService _countryRestService;
 
-        public CitySearchDomainService(IMapperService mapperService, ICityDataService cityDataService)
+        public CitySearchDomainService(IMapperService mapperService, ICityDataService cityDataService, ICountryRestService countryRestService)
         {
             _mapperService = mapperService;
             _cityDataService = cityDataService;
+            _countryRestService = countryRestService;
         }
 
         public IEnumerable<CitySearchResultDomainModel> Search(string searchTerm)
         {
-            var matchingCities = _cityDataService.GetCities()
-                .Where(city => city.Name.ToLowerInvariant().Contains(searchTerm.ToLowerInvariant())).ToList();
+            var matchingCityDtos = _cityDataService.GetCities()
+                .Where(city => city.Name.ToLowerInvariant().Contains(searchTerm.ToLowerInvariant()));
 
-            var results = _mapperService.Map< IEnumerable<CitySearchResultDomainModel>>(matchingCities);
+            var cityDomainModels = _mapperService.Map<IEnumerable<CityDomainModel>>(matchingCityDtos)
+                .ToList();
 
-            return results;
+            var distinctCountryCodes = cityDomainModels.Select(city => city.Country2LetterCode).Distinct();
+            var countrySummaries = GetAllCountrySummaries(distinctCountryCodes).ToList();
 
-            // I've started coding this a little too early. I'm commenting it out for now but will add it later.
+            var citiesAndCountries = new List<(CityDomainModel, CountrySummaryDomainModel)>();
 
-            // var distinctCountryCodes = matchingCities.Select(city => city.Country2LetterCode).Distinct();
-            //var countrySummaries = GetAllCountrySummaries(distinctCountryCodes).ToList();
+            foreach (var searchResult in cityDomainModels)
+            {
+                var country = countrySummaries.First(x => x.Alpha2Code == searchResult.Country2LetterCode);
+                citiesAndCountries.Add((searchResult, country));
+            }
 
-            //var citiesAndCountries = new List<(CityDto, CountrySummaryDomainModel)>();
+           var result = _mapperService.Map<IEnumerable<CitySearchResultDomainModel>>(citiesAndCountries);
 
-            //foreach (var city in matchingCities)
-            //{
-            //    var country = countrySummaries.First(x => x.Alpha2Code == city.Country2LetterCode);
-            //    citiesAndCountries.Add((city, country));
-            //}
-
-            // return _mapperService.Map<IEnumerable<CitySearchResultDomainModel>>(citiesAndCountries);
+           return result;
         }
 
-        //private IEnumerable<CountrySummaryDomainModel> GetAllCountrySummaries(IEnumerable<string> distinctCountryCodes)
-        //{
-        //    foreach (var countryCode in distinctCountryCodes)
-        //    {
-        //        var countryData = _countryDataService.GetCountryData(countryCode);
-        //        yield return GetCountrySummary(countryData);
-        //    }
-        //}
+        private IEnumerable<CountrySummaryDomainModel> GetAllCountrySummaries(IEnumerable<string> distinctCountryCodes)
+        {
+            foreach (var countryCode in distinctCountryCodes)
+            {
+                var countryData = _countryRestService.GetCountryData(countryCode);
+                yield return GetCountrySummary(countryData);
+            }
+        }
 
-        //private CountrySummaryDomainModel GetCountrySummary(Country countryData)
-        //{
-        //    return _mapperService.Map<CountrySummaryDomainModel>(countryData);
-        //}
+        private CountrySummaryDomainModel GetCountrySummary(Country countryData)
+        {
+            return _mapperService.Map<CountrySummaryDomainModel>(countryData);
+        }
 
-    
+
     }
 }

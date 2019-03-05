@@ -26,7 +26,7 @@ namespace CityWeather.Data.Models.Dtos
         /// <value>
         /// The country2 letter code.
         /// </value>
-        public string Country2LetterCode { get; set; }
+        public string CountryCode { get; set; }
 
         /// <summary>
         /// Converts to tourist rating.

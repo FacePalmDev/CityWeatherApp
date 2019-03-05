@@ -45,8 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CountryDataService.cs" />
-    <Compile Include="ICountryDataService.cs" />
+    <Compile Include="CountryRestService.cs" />
+    <Compile Include="ICountryRestService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

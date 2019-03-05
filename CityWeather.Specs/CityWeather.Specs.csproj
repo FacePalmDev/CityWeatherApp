@@ -142,9 +142,17 @@
       <Project>{958C598B-A818-42F9-83C6-DFD764A2554B}</Project>
       <Name>CityWeather.Domain.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CityWeather.Domain.Models\CityWeather.Domain.Models.csproj">
+      <Project>{6788B23A-9EC6-48DD-9431-23357E757D20}</Project>
+      <Name>CityWeather.Domain.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CityWeather.Domain\CityWeather.Domain.csproj">
       <Project>{FEF98203-8648-48A7-BACE-8C7364F468A3}</Project>
       <Name>CityWeather.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestCountries.Api\RestCountries.Api.csproj">
+      <Project>{06BB78B4-F5E8-4DD5-A3C7-1A8164C98D6B}</Project>
+      <Name>RestCountries.Api</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

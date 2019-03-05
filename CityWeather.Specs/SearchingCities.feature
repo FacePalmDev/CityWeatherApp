@@ -4,24 +4,27 @@
 	So that I can view the city, weather and country data.
 
 Scenario Outline: Search for present city 
-	Given The city "London" exists in the system
-	And The city "Londonderry" exists in the system
-	And The city "Manchester" exists in the system
+	Given The city "London" exists in the system with country code "GB"
+	And The city "Tokyo" exists in the system with country code "JP"
+	And The city "Manchester" exists in the system with country code "GB"
 	When The search term "<searchTerm>" is used
 	Then The search results should contain "<result1>"
 	And The search results should contain "<result2>"
 	And The number of results returned should be <resultCount>
+	And The search results should contain country data for "<country1>"
+	And The search results should contain country data for "<country2>"
 
 # todo: isn't ideal but will suffice for now.
+# I'd like to break this out into separate more granular tests.
 Examples:
-	| searchTerm	| result1		| result2	  | resultCount |
-	| london		| London		| Londonderry | 2           |
-	| man			| Manchester	| Manchester  | 1           |
-	| Londonderry	| Londonderry	| Londonderry | 1           |
+	| searchTerm  | result1     | result2     | country1 | country2 | resultCount |
+	| o			  | London      | Tokyo		  | GB       | JP       | 2           |
+	| man         | Manchester  | Manchester  | GB       | GB       | 1           |
+	| Tokyo		  | Tokyo		| Tokyo		  | JP       | JP       | 1           |
 
 
 Scenario: Search for non-present city
-	Given The city "London" exists in the system
-	And The city "Manchester" exists in the system
+	Given The city "London" exists in the system with country code "GB"
+	And The city "Manchester" exists in the system with country code "GB"
 	When The search term "Londonderry" is used
 	Then The number of results returned should be 0

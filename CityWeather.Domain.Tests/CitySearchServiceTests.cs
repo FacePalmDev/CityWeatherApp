@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CityWeather.Api.Models;
+using Castle.Components.DictionaryAdapter;
 using CityWeather.Common.Mappings;
 using CityWeather.Data.Contracts.Services;
 using CityWeather.Data.Models.Dtos;
 using CityWeather.Domain.Contracts;
-using CityWeather.Domain.Models;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using RestCountries.Api;
+using RestCountries.Models;
 
 namespace CityWeather.Domain.Tests
 {
@@ -19,6 +20,7 @@ namespace CityWeather.Domain.Tests
         private ICitySearchDomainService _sutDomainService;
         private MapperService _mockMapperService;
         private Mock<ICityDataService> _mockDataService;
+        private Mock<ICountryRestService> _mockCountryRestService;
 
         [TestInitialize()]
         public void Startup()
@@ -28,17 +30,22 @@ namespace CityWeather.Domain.Tests
                 new CityDto()
                 {
                     Name = "London",
-                    EstablishedDate = DateTime.Now
+                    EstablishedDate = DateTime.Now,
+                    CountryCode = "GB"
+            
                 },
                 new CityDto()
                 {
                     Name = "Manchester",
-                    EstablishedDate = DateTime.Now
+                    EstablishedDate = DateTime.Now,
+                    CountryCode = "GB"
+
                 },
                 new CityDto()
                 {
-                    Name = "Londonderry",
-                    EstablishedDate = DateTime.Now
+                    Name = "Tokyo",
+                    EstablishedDate = DateTime.Now,
+                    CountryCode = "JP"
                 },
             };
 
@@ -50,8 +57,45 @@ namespace CityWeather.Domain.Tests
             _mockDataService
                 .Setup(x => x.CreateCity(It.IsAny<CityDto>()))
                 .Verifiable();
-            ;
-            _sutDomainService = new CitySearchDomainService(_mockMapperService, _mockDataService.Object);
+
+            _mockCountryRestService = new Mock<ICountryRestService>();
+
+            // todo: DEBT => I know that this can be done with a lambda which would make it neater.
+            // I'm running a little low on time so I'll stick with this for now. 
+            // given more time I'd like to add this to a test helper class.
+          
+            _mockCountryRestService
+            .Setup(x => x.GetCountryData("GB")).Returns(
+                    new Country()
+                    {
+                        Alpha2Code = "GB",
+                        Currencies = new EditableList<Currency>
+                        {
+                            new Currency
+                            {
+                                Code = "GBP",
+                                Name = "Pounds",
+                                Symbol = "£"
+                            }
+                        }
+                    });
+            _mockCountryRestService
+            .Setup(x => x.GetCountryData("JP")).Returns(
+                new Country()
+                {
+                    Alpha2Code = "JP",
+                    Currencies = new EditableList<Currency>
+                    {
+                        new Currency
+                        {
+                            Code = "YEN",
+                            Name = "YEN",
+                            Symbol = "¥"
+                        }
+                    }
+                });
+
+            _sutDomainService = new CitySearchDomainService(_mockMapperService, _mockDataService.Object, _mockCountryRestService.Object);
         }
 
         [TestMethod]
@@ -63,7 +107,7 @@ namespace CityWeather.Domain.Tests
         [TestMethod]
         public void Can_Search_Existing_Cities()
         {
-            var results = _sutDomainService.Search("London").ToList();
+            var results = _sutDomainService.Search("o").ToList();
             results.Should().NotBeNull();
             results.Count().Should().Be(2);
         }
@@ -71,9 +115,9 @@ namespace CityWeather.Domain.Tests
         [TestMethod]
         public void Can_Search_Case_Insensitive()
         {
-            var results = _sutDomainService.Search("london").ToList();
+            var results = _sutDomainService.Search("lon").ToList();
             results.Should().NotBeNull();
-            results.Count().Should().Be(2);
+            results.Count().Should().Be(1);
         }
 
         [TestMethod]

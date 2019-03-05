@@ -2,7 +2,7 @@
 
 namespace RestCountries.Api
 {
-    public interface ICountryDataService
+    public interface ICountryRestService
     {
         Country GetCountryData(string countryCode);
     }
