@@ -41,10 +41,7 @@ namespace CityWeather.Domain
             foreach (var searchResult in cityDomainModels)
             {
                 var country = countrySummaries.First(x => x.Alpha2Code == searchResult.Country2LetterCode);
-
                 var fullWeatherReport = _weatherService.GetWeatherReport(searchResult.Name);
-
-
                 var weatherSummary = _mapperService.Map<CityWeatherReportDomainModel>(fullWeatherReport);
 
                 citiesWeatherAndCountries.Add((searchResult, weatherSummary, country));
