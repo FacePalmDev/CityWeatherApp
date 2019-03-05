@@ -10,12 +10,16 @@ namespace CityWeather.Common.Mappings.Profiles
     {
         public CityMappingProfile()
         {
-            CreateMap<CityApiModel, CityDomainModel > ().ReverseMap();
-            CreateMap<CityDomainModel, CityDto>().ReverseMap();
-            CreateMap<CityDto, City>()
-                .ForMember(dest => dest.CountryCode, 
-                    opt => opt.MapFrom(src => src.Country2LetterCode))
-                .ReverseMap();
+
+            CreateMap<City, CityDto>().ReverseMap();
+            CreateMap<CityApiModel, CityDomainModel>().ReverseMap();
+            CreateMap<CityDomainModel, CityDto>()
+                .ForMember(dest => dest.CountryCode,
+                    opt => opt.MapFrom(src => src.Country2LetterCode));
+
+            CreateMap<CityDto, CityDomainModel>()
+                .ForMember(dest => dest.Country2LetterCode,
+                    opt => opt.MapFrom(src => src.CountryCode));
 
             CreateMap<CityDto, CitySearchResultDomainModel>()
                 .ForMember(dest => dest.CityName,

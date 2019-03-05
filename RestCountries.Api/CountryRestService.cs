@@ -5,7 +5,7 @@ using RestSharp.Serialization.Json;
 
 namespace RestCountries.Api
 {
-    public class CountryDataService : ICountryDataService
+    public class CountryRestService : ICountryRestService
     {
         public Country GetCountryData(string countryCode)
         {
@@ -14,7 +14,7 @@ namespace RestCountries.Api
 
             var response = client.Execute(request);
 
-            JsonDeserializer deserializer = new JsonDeserializer();
+            var deserializer = new JsonDeserializer();
 
             return deserializer.Deserialize<Country>(response);
         }

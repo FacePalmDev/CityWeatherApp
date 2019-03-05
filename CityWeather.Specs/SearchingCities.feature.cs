@@ -95,11 +95,11 @@ namespace CityWeather.Specs
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 7
- testRunner.Given("The city \"London\" exists in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("The city \"London\" exists in the system with country code \"GB\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
- testRunner.And("The city \"Londonderry\" exists in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The city \"Tokyo\" exists in the system with country code \"JP\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
- testRunner.And("The city \"Manchester\" exists in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The city \"Manchester\" exists in the system with country code \"GB\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
  testRunner.When(string.Format("The search term \"{0}\" is used", searchTerm), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
@@ -117,19 +117,19 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Search for present city: london")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Search for present city: o")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SearchingCities")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "london")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:searchTerm", "london")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "o")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:searchTerm", "o")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:result1", "London")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:result2", "Londonderry")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:result2", "Tokyo")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:country1", "GB")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:country2", "IRL")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:country2", "JP")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:resultCount", "2")]
-        public virtual void SearchForPresentCity_London()
+        public virtual void SearchForPresentCity_O()
         {
 #line 6
-this.SearchForPresentCity("london", "London", "Londonderry", "GB", "IRL", "2", ((string[])(null)));
+this.SearchForPresentCity("o", "London", "Tokyo", "GB", "JP", "2", ((string[])(null)));
 #line hidden
         }
         
@@ -151,19 +151,19 @@ this.SearchForPresentCity("man", "Manchester", "Manchester", "GB", "GB", "1", ((
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Search for present city: Londonderry")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Search for present city: Tokyo")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SearchingCities")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Londonderry")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:searchTerm", "Londonderry")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:result1", "Londonderry")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:result2", "Londonderry")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:country1", "IRL")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:country2", "IRL")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Tokyo")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:searchTerm", "Tokyo")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:result1", "Tokyo")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:result2", "Tokyo")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:country1", "JP")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:country2", "JP")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:resultCount", "1")]
-        public virtual void SearchForPresentCity_Londonderry()
+        public virtual void SearchForPresentCity_Tokyo()
         {
 #line 6
-this.SearchForPresentCity("Londonderry", "Londonderry", "Londonderry", "IRL", "IRL", "1", ((string[])(null)));
+this.SearchForPresentCity("Tokyo", "Tokyo", "Tokyo", "JP", "JP", "1", ((string[])(null)));
 #line hidden
         }
         
@@ -177,9 +177,9 @@ this.SearchForPresentCity("Londonderry", "Londonderry", "Londonderry", "IRL", "I
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 26
- testRunner.Given("The city \"London\" exists in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("The city \"London\" exists in the system with country code \"GB\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 27
- testRunner.And("The city \"Manchester\" exists in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The city \"Manchester\" exists in the system with country code \"GB\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 28
  testRunner.When("The search term \"Londonderry\" is used", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 29

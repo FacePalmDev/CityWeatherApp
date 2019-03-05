@@ -7,10 +7,13 @@ using CityWeather.Common.Mappings;
 using CityWeather.Data.Contracts;
 using CityWeather.Data.Contracts.Services;
 using CityWeather.Data.Models;
+using CityWeather.Data.Models.Dtos;
 using CityWeather.Data.Services;
 using CityWeather.Domain;
+using CityWeather.Domain.Models;
 using FluentAssertions;
 using Moq;
+using RestCountries.Api;
 using TechTalk.SpecFlow;
 
 namespace CityWeather.Specs
@@ -20,13 +23,14 @@ namespace CityWeather.Specs
     {
 
         public CitySearchController _citySearchController;
-        private IEnumerable<CitySearchResultApiModel> _lastSearchResult;
+        private IEnumerable<CitySearchResultApiModel> _lastSearchResults;
         private IMapperService _mapperService;
         private CitySearchDomainService _citySearchDomainService;
         private List<City> _exampleCityEntities;
         private Mock<IRepository<CityWeatherContainer, City>> _mockCityRepository;
         private Mock<IUnitOfWork> _mockUnitOfWork;
         private CityDataService _cityDataService;
+        private CountryRestService _countryService;
 
         [BeforeScenario()]
         private void BeforeScenario()
@@ -41,21 +45,24 @@ namespace CityWeather.Specs
             _mockCityRepository = new Mock<IRepository<CityWeatherContainer, City>>();
             _mockCityRepository.Setup(x => x.Read()).Returns(_exampleCityEntities);
 
-
+            // thought about mocking this, but I don't think a quick REST call is a problem here;
+            // besides specs can be longer running tests that also test integration unlike unit tests. 
+            // if the 3rd party API changed and broke our system it would be nice to know about it.
+            _countryService = new CountryRestService();
 
             _cityDataService = new CityDataService(_mockCityRepository.Object, _mockUnitOfWork.Object, _mapperService);
             _citySearchDomainService =
-                new CitySearchDomainService(_mapperService, _cityDataService);
+                new CitySearchDomainService(_mapperService, _cityDataService, _countryService);
 
             _citySearchController = new CitySearchController(_mapperService, _citySearchDomainService);
         }
 
-        [Given(@"The city ""(.*)"" exists in the system")]
-        public void GivenTheCityExistsInTheSystem(string cityName)
+        [Given(@"The city ""(.*)"" exists in the system with country code ""(.*)""")]
+        public void GivenTheCityExistsInTheSystem(string cityName, string countryCode)
         {
-            var newCityApiModel = new City()
+            var city = new City()
             {
-                CountryCode = "GB",
+                CountryCode = countryCode,
                 EstablishedDate = new DateTime(),
                 EstimatedPopulation = 8787892,
                 Name = cityName,
@@ -64,32 +71,32 @@ namespace CityWeather.Specs
                 TouristRating = 5
             };
 
-            _exampleCityEntities.Add(newCityApiModel);
+            _exampleCityEntities.Add(city);
         }
 
         [When(@"The search term ""(.*)"" is used")]
         public void WhenTheSearchTermIsUsed(string searchTerm)
         {
-            _lastSearchResult = _citySearchController.Get(searchTerm);
+            _lastSearchResults = _citySearchController.Get(searchTerm);
         }
 
         [Then(@"The search results should contain ""(.*)""")]
         public void ThenTheSearchResultsShouldContain(string cityName)
         {
-            _lastSearchResult.Any(x => x.CityName == cityName).Should().BeTrue();
+            _lastSearchResults.Any(x => x.CityName == cityName).Should().BeTrue();
         }
 
         [Then(@"The number of results returned should be (.*)")]
         public void ThenTheNumberOfResultsReturnedShouldBe(int count)
         {
-            _lastSearchResult.Count().Should().Be(count);
-
+            _lastSearchResults.Count().Should().Be(count);
         }
 
-        [Then(@"The seach results should contain country data for ""(.*)""")]
-        public void ThenTheSeachResultsShouldContainCountryDataFor()
+        [Then(@"The search results should contain country data for ""(.*)""")]
+        public void ThenTheSearchResultsShouldContainCountryDataFor(string countryCode)
         {
-            ScenarioContext.Current.Pending();
+            _lastSearchResults.Any(x => x.CountrySummary.Alpha2Code == countryCode)
+                .Should().BeTrue();
         }
 
     }

@@ -13,7 +13,7 @@ namespace CityWeather.Api.Models
         public string CityState { get; set; }
 
         //todo make a model for these.
-        public string CountrySummary { get; set; }
+        public CountrySummarySearchResultApiModel CountrySummary { get; set; }
         public string WeatherSummary { get; set; }
 
         public uint TouristRating { get; set; }

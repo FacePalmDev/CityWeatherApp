@@ -13,14 +13,14 @@ namespace CityWeather.Domain.Models
         public string CityState { get; set; }
 
         //todo make a model for these.
-        public string CountrySummary { get; set; }
+        public CountrySummaryDomainModel CountrySummary { get; set; }
         public string WeatherSummary { get; set; }
 
         public uint TouristRating { get; set; }
         public DateTime EstablishedDate { get; set; }
         public int EstimatedPopulation { get; set; }
 
-        public string IsoCountry2LetterCode { get; set; }
-        public string IsoCountry3LetterCode { get; set; }
+        public string Country2LetterCode { get; set; }
+        public string Country3LetterCode { get; set; }
     }
 }

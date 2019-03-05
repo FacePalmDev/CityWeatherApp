@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace CityWeather.Domain.Models
+namespace CityWeather.Api.Models
 {
-    public class CountrySummaryDomainModel
+    public class CountrySummarySearchResultApiModel
     {
         public string Name { get; set; }
         public string Alpha2Code { get; set; }
@@ -13,5 +17,6 @@ namespace CityWeather.Domain.Models
         public int Population { get; set; }
         public List<double> Latlng { get; set; }
         public List<string> CurrencyCodes { get; set; }
+        
     }
 }
