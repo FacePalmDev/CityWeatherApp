@@ -45,7 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MapperService.cs" />
-    <Compile Include="Profiles\CityProfile.cs" />
+    <Compile Include="Profiles\CitySearchMappingProfile.cs" />
+    <Compile Include="Profiles\CityMappingProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

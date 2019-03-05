@@ -13,6 +13,7 @@ namespace CityWeather.Common.Mappings
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile<CityMappingProfile>();
+                cfg.AddProfile<CitySearchMappingProfile>();
             });
 
             _mapper = new Mapper(config);
