@@ -13,9 +13,11 @@ Scenario Outline: Search for present city
 	And The number of results returned should be <resultCount>
 	And The search results should contain country data for "<country1>"
 	And The search results should contain country data for "<country2>"
+	And The search results should contain a weather description
 
 # todo: isn't ideal but will suffice for now.
 # I'd like to break this out into separate more granular tests.
+# let's put it down to technical debt and time constraints
 Examples:
 	| searchTerm  | result1     | result2     | country1 | country2 | resultCount |
 	| o			  | London      | Tokyo		  | GB       | JP       | 2           |

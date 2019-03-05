@@ -7,8 +7,8 @@
     <ProjectGuid>{06BB78B4-F5E8-4DD5-A3C7-1A8164C98D6B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RestCountries.Api</RootNamespace>
-    <AssemblyName>RestCountries.Api</AssemblyName>
+    <RootNamespace>RestCountries.Domain</RootNamespace>
+    <AssemblyName>RestCountries.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CountryRestService.cs" />
-    <Compile Include="ICountryRestService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +59,14 @@
     <ProjectReference Include="..\RestCountries.Models\RestCountries.Models.csproj">
       <Project>{76ECD6B6-31BF-49F5-B3F2-D73D1C40766C}</Project>
       <Name>RestCountries.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestServices.Contracts\RestServices.Domain.Contracts.csproj">
+      <Project>{2AB08275-D5AA-4C81-8941-A0A6A82D5B70}</Project>
+      <Name>RestServices.Domain.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestServices\RestServices.Domain.csproj">
+      <Project>{C46E63B1-04D5-497C-B484-F9BE9906DE21}</Project>
+      <Name>RestServices.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

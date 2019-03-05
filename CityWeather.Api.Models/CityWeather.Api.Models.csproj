@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CityApiModel.cs" />
     <Compile Include="CitySearchResultApiModel.cs" />
+    <Compile Include="CityWeatherReportApiModel.cs" />
     <Compile Include="CountrySummarySearchResultApiModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -9,8 +9,9 @@ using CityWeather.Domain.Contracts;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using RestCountries.Api;
+using RestCountries.Domain.Services;
 using RestCountries.Models;
+using RestServices.Domain.Contracts;
 
 namespace CityWeather.Domain.Tests
 {
@@ -21,6 +22,7 @@ namespace CityWeather.Domain.Tests
         private MapperService _mockMapperService;
         private Mock<ICityDataService> _mockDataService;
         private Mock<ICountryRestService> _mockCountryRestService;
+        private Mock<IWeatherRestService> _mockWeatherRestService;
 
         [TestInitialize()]
         public void Startup()
@@ -32,7 +34,7 @@ namespace CityWeather.Domain.Tests
                     Name = "London",
                     EstablishedDate = DateTime.Now,
                     CountryCode = "GB"
-            
+
                 },
                 new CityDto()
                 {
@@ -59,11 +61,12 @@ namespace CityWeather.Domain.Tests
                 .Verifiable();
 
             _mockCountryRestService = new Mock<ICountryRestService>();
+            _mockWeatherRestService = new Mock<IWeatherRestService>();
 
             // todo: DEBT => I know that this can be done with a lambda which would make it neater.
             // I'm running a little low on time so I'll stick with this for now. 
             // given more time I'd like to add this to a test helper class.
-          
+
             _mockCountryRestService
             .Setup(x => x.GetCountryData("GB")).Returns(
                     new Country()
@@ -95,7 +98,7 @@ namespace CityWeather.Domain.Tests
                     }
                 });
 
-            _sutDomainService = new CitySearchDomainService(_mockMapperService, _mockDataService.Object, _mockCountryRestService.Object);
+            _sutDomainService = new CitySearchDomainService(_mockMapperService, _mockDataService.Object, _mockWeatherRestService.Object, _mockCountryRestService.Object);
         }
 
         [TestMethod]

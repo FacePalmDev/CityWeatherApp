@@ -1,6 +1,4 @@
-﻿using System;
-using CityWeather.Api.Models;
-using CityWeather.Common.Mappings;
+﻿using CityWeather.Api.Models;
 using CityWeather.Data.Contracts.Services;
 using CityWeather.Data.Models.Dtos;
 using CityWeather.Domain.Contracts;

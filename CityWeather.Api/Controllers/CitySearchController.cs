@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Collections.Generic;
 using System.Web.Http;
 using CityWeather.Api.Models;
 using CityWeather.Data.Contracts.Services;
@@ -24,8 +19,9 @@ namespace CityWeather.Api.Controllers
         // GET: api/CitySearch/5
         public IEnumerable<CitySearchResultApiModel> Get(string cityName)
         {
-
-            return _mapperService.Map<IEnumerable<CitySearchResultApiModel>>(_citySearchDomainService.Search(cityName));
+            var citySearchResult = _citySearchDomainService.Search(cityName);
+            var result =  _mapperService.Map<IEnumerable<CitySearchResultApiModel>>(citySearchResult);
+            return result;
         }
 
 

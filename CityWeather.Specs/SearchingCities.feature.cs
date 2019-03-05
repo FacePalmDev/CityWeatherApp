@@ -112,6 +112,8 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And(string.Format("The search results should contain country data for \"{0}\"", country1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
  testRunner.And(string.Format("The search results should contain country data for \"{0}\"", country2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 16
+ testRunner.And("The search results should contain a weather description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -173,16 +175,16 @@ this.SearchForPresentCity("Tokyo", "Tokyo", "Tokyo", "JP", "JP", "1", ((string[]
         public virtual void SearchForNon_PresentCity()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for non-present city", null, ((string[])(null)));
-#line 26
+#line 28
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 27
- testRunner.Given("The city \"London\" exists in the system with country code \"GB\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 28
- testRunner.And("The city \"Manchester\" exists in the system with country code \"GB\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 29
- testRunner.When("The search term \"Londonderry\" is used", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("The city \"London\" exists in the system with country code \"GB\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 30
+ testRunner.And("The city \"Manchester\" exists in the system with country code \"GB\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 31
+ testRunner.When("The search term \"Londonderry\" is used", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 32
  testRunner.Then("The number of results returned should be 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

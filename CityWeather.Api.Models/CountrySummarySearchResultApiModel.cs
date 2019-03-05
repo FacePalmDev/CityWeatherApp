@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CityWeather.Api.Models
 {
+    /// <summary>
+    /// Country information model for the api. 
+    /// </summary>
     public class CountrySummarySearchResultApiModel
     {
         public string Name { get; set; }

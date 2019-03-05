@@ -2,13 +2,9 @@
 using TechTalk.SpecFlow;
 using System.Linq;
 using CityWeather.Api.Controllers;
-using CityWeather.Api.DependencyResolution;
-using CityWeather.Api.Models;
 using CityWeather.Common.Mappings;
 using CityWeather.Data.Contracts;
-using CityWeather.Data.Contracts.Services;
 using CityWeather.Data.Models;
-using CityWeather.Data.Models.Dtos;
 using CityWeather.Data.Services;
 using CityWeather.Domain;
 using CityWeather.Specs.TestHelpers;

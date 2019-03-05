@@ -43,8 +43,8 @@
   <ItemGroup>
     <Compile Include="CityDomainModel.cs" />
     <Compile Include="CitySearchResultDomainModel.cs" />
+    <Compile Include="CityWeatherReportDomainModel.cs" />
     <Compile Include="CountrySummaryDomainModel.cs" />
-    <Compile Include="CountrySummarySearchResultDomainModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
