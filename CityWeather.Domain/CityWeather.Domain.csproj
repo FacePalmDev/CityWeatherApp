@@ -77,9 +77,9 @@
       <Project>{6788B23A-9EC6-48DD-9431-23357E757D20}</Project>
       <Name>CityWeather.Domain.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RestCountries.Api\RestCountries.Api.csproj">
+    <ProjectReference Include="..\RestCountries.Api\RestCountries.Domain.Services.csproj">
       <Project>{06BB78B4-F5E8-4DD5-A3C7-1A8164C98D6B}</Project>
-      <Name>RestCountries.Api</Name>
+      <Name>RestCountries.Domain.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\RestCountries.Models\RestCountries.Models.csproj">
       <Project>{76ECD6B6-31BF-49F5-B3F2-D73D1C40766C}</Project>

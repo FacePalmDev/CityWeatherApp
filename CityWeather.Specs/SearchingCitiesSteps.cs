@@ -13,7 +13,7 @@ using CityWeather.Domain;
 using CityWeather.Domain.Models;
 using FluentAssertions;
 using Moq;
-using RestCountries.Api;
+using RestCountries.Domain.Services;
 using TechTalk.SpecFlow;
 
 namespace CityWeather.Specs

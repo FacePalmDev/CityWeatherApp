@@ -1,21 +1,19 @@
 ﻿using CityWeather.Common.Settings;
 using RestCountries.Models;
-using RestServices;
+using RestServices.Domain;
 using RestSharp;
-using RestSharp.Serialization.Json;
 
-namespace RestCountries.Api
+namespace RestCountries.Domain.Services
 {
     /// <summary>
     /// The Country Rest Service Helper.
     /// </summary>
-    /// <seealso cref="RestServices.RestService{RestCountries.Models.Country}" />
+    /// <seealso cref="Country" />
     /// <seealso cref="RestCountries.Api.ICountryRestService" />
+    /// <inheritdoc cref="RestCountries.Api.ICountryRestService"/>
     public class CountryRestService : RestService<Country>, ICountryRestService
     {
-        /// <summary>
-        /// Gets the rest client.
-        /// </summary>
+
         public override RestClient Client { get; }
         
         /// <summary>
@@ -34,7 +32,6 @@ namespace RestCountries.Api
         public Country GetCountryData(string countryCode)
         {
             var request = new RestRequest($"alpha/{countryCode}", Method.GET);
-
             return GetDeserializedObject(request);
         }
 

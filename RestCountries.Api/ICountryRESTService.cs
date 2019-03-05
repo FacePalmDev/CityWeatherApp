@@ -1,6 +1,6 @@
 ﻿using RestCountries.Models;
 
-namespace RestCountries.Api
+namespace RestCountries.Domain.Services
 {
     public interface ICountryRestService
     {

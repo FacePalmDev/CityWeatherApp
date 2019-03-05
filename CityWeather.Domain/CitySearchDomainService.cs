@@ -5,7 +5,7 @@ using CityWeather.Data.Contracts.Services;
 using CityWeather.Data.Models.Dtos;
 using CityWeather.Domain.Contracts;
 using CityWeather.Domain.Models;
-using RestCountries.Api;
+using RestCountries.Domain.Services;
 using RestCountries.Models;
 
 namespace CityWeather.Domain

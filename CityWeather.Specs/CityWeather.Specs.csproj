@@ -150,13 +150,13 @@
       <Project>{FEF98203-8648-48A7-BACE-8C7364F468A3}</Project>
       <Name>CityWeather.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RestCountries.Api\RestCountries.Api.csproj">
+    <ProjectReference Include="..\RestCountries.Api\RestCountries.Domain.Services.csproj">
       <Project>{06BB78B4-F5E8-4DD5-A3C7-1A8164C98D6B}</Project>
-      <Name>RestCountries.Api</Name>
+      <Name>RestCountries.Domain.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RestServices\RestServices.csproj">
+    <ProjectReference Include="..\RestServices\RestServices.Domain.csproj">
       <Project>{c46e63b1-04d5-497c-b484-f9be9906de21}</Project>
-      <Name>RestServices</Name>
+      <Name>RestServices.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
