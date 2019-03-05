@@ -13,5 +13,6 @@ namespace CityWeather.Specs.TestHelpers
                 new CityApiModel() { Name = "Sheffield" }
             };
         }
+
     }
 }

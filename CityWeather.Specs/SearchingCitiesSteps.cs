@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using Castle.Components.DictionaryAdapter;
 using CityWeather.Api.Controllers;
 using CityWeather.Api.Models;
 using CityWeather.Common.Mappings;
@@ -11,11 +9,8 @@ using CityWeather.Data.Contracts.Services;
 using CityWeather.Data.Models;
 using CityWeather.Data.Services;
 using CityWeather.Domain;
-using CityWeather.Domain.Contracts;
-using CityWeather.Specs.TestHelpers;
 using FluentAssertions;
 using Moq;
-using RestCountries.Api;
 using TechTalk.SpecFlow;
 
 namespace CityWeather.Specs
@@ -32,7 +27,6 @@ namespace CityWeather.Specs
         private Mock<IRepository<CityWeatherContainer, City>> _mockCityRepository;
         private Mock<IUnitOfWork> _mockUnitOfWork;
         private CityDataService _cityDataService;
-        private Mock<ICountryDataService> _mockCountryDataService;
 
         [BeforeScenario()]
         private void BeforeScenario()
@@ -47,7 +41,6 @@ namespace CityWeather.Specs
             _mockCityRepository = new Mock<IRepository<CityWeatherContainer, City>>();
             _mockCityRepository.Setup(x => x.Read()).Returns(_exampleCityEntities);
 
-            _mockCountryDataService = new Mock<ICountryDataService>();
 
 
             _cityDataService = new CityDataService(_mockCityRepository.Object, _mockUnitOfWork.Object, _mapperService);

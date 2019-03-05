@@ -17,7 +17,6 @@ namespace CityWeather.Data.Repositories
             _context = context;
         }
 
-
         public async Task Complete()
         {
             if (_context.ChangeTracker.HasChanges())
@@ -29,10 +28,7 @@ namespace CityWeather.Data.Repositories
                     throw new DbEntityValidationException("Entity validation failed for database save", validationErrors);
                 }
                 
-                // I was attempting to do this asynchronously but ran into some issues where 
-                // save changes async wasn't completing. This may have something to do with server locks but
-                // I don't have time to investigate right now. So I'll keep this simple. 
-
+                // I did have some issues with this but suspect it wasn't a coding issue. 
                 await _context.SaveChangesAsync();
             }
         }
