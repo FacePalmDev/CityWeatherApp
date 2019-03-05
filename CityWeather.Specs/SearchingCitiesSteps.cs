@@ -11,7 +11,7 @@ using CityWeather.Data.Services;
 using CityWeather.Domain;
 using FluentAssertions;
 using Moq;
-using RestCountries.Domain.Services;
+using RestCountries.Domain;
 using RestServices.Domain.Contracts;
 using RestWeather.Domain;
 using TechTalk.SpecFlow;

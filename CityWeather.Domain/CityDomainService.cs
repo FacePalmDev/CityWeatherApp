@@ -21,5 +21,16 @@ namespace CityWeather.Domain
             var cityDtoModel = _mapperService.Map<CityDto>(newCityDomainModel);
             _cityDataService.CreateCity(cityDtoModel);
         }
+
+        public void UpdateCity(int id, CityDomainModel city)
+        {
+            var cityDtoModel = _mapperService.Map<CityDto>(city);
+            _cityDataService.UpdateCity(id, cityDtoModel);
+        }
+
+        public void DeleteCity(int id)
+        {
+            _cityDataService.DeleteCity(id);
+        }
     }
 }

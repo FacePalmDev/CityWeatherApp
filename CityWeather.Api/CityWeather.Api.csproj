@@ -187,6 +187,18 @@
       <Project>{fef98203-8648-48a7-bace-8c7364f468a3}</Project>
       <Name>CityWeather.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RestCountries.Api\RestCountries.Domain.csproj">
+      <Project>{06bb78b4-f5e8-4dd5-a3c7-1a8164c98d6b}</Project>
+      <Name>RestCountries.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestServices.Contracts\RestServices.Domain.Contracts.csproj">
+      <Project>{2ab08275-d5aa-4c81-8941-a0a6a82d5b70}</Project>
+      <Name>RestServices.Domain.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestWeather.Domain\RestWeather.Domain.csproj">
+      <Project>{a7a06911-1c9d-486b-9862-069b6c3f9668}</Project>
+      <Name>RestWeather.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

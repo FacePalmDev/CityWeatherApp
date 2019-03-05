@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
+using System.Linq;
 using CityWeather.Data.Contracts;
 
 namespace CityWeather.Data.Repositories
@@ -9,34 +11,32 @@ namespace CityWeather.Data.Repositories
         where TContext: DbContext 
         where TEntity: class
     {
-        private readonly TContext _context;
+        public TContext Context { get; }
         private readonly DbSet<TEntity> _dbSet;
 
         public Repository(TContext context)
         {
-            _context = context;
+            Context = context;
             _dbSet = context.Set<TEntity>();
         }
         
         public void Create(TEntity item)
         {
             _dbSet.Add(item);
-
         }
 
         public IEnumerable<TEntity> Read()
         {
             return _dbSet;
         }
-
-        public void Update(int id, TEntity item)
-        {
-            throw new NotImplementedException();
-        }
-
+     
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var found = _dbSet.Find(id);
+            if (found != null)
+            {
+                _dbSet.Remove(found);
+            }
         }
     }
 }
