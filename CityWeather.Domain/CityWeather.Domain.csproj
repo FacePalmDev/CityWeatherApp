@@ -89,6 +89,10 @@
       <Project>{2AB08275-D5AA-4C81-8941-A0A6A82D5B70}</Project>
       <Name>RestServices.Domain.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RestWeather.Models\RestWeather.Models.csproj">
+      <Project>{4C7472E4-E666-4E60-9C52-CEC99DCA58DE}</Project>
+      <Name>RestWeather.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

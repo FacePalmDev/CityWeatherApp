@@ -3,6 +3,7 @@ using AutoMapper;
 using CityWeather.Api.Models;
 using CityWeather.Domain.Models;
 using RestCountries.Models;
+using RestWeather.Models;
 
 namespace CityWeather.Common.Mappings.Profiles
 {
@@ -10,15 +11,39 @@ namespace CityWeather.Common.Mappings.Profiles
     {
         public CitySearchMappingProfile()
         {
+            CreateMap<CityWeatherReportDomainModel, CityWeatherReportApiModel>();
+
             CreateMap<Country, CountrySummaryDomainModel>()
                 .ForMember(dest => dest.CurrencyCodes, opt => opt.ResolveUsing(GetCountryCurrencyCode));
-                
-            CreateMap<(CityDomainModel, CountrySummaryDomainModel), CitySearchResultDomainModel>()
+
+            CreateMap<(CityDomainModel, CityWeatherReportDomainModel, CountrySummaryDomainModel), 
+                    CitySearchResultDomainModel>()
                 .ForMember(dest => dest.CityName, opt => opt.MapFrom(src => src.Item1.Name))
-                .ForMember(dest => dest.CountrySummary, opt => opt.MapFrom(src => src.Item2));
+                .ForMember(dest => dest.WeatherReport, opt => opt.MapFrom(src => src.Item2))
+                .ForMember(dest => dest.CountrySummary, opt => opt.MapFrom(src => src.Item3));
 
             CreateMap<CitySearchResultDomainModel, CitySearchResultApiModel>();
             CreateMap<CountrySummaryDomainModel, CountrySummarySearchResultApiModel>();
+            CreateMap<WeatherReport, CityWeatherReportDomainModel>()
+                .ForMember(dest => dest.WeatherReportDescriptions, opt => opt.ResolveUsing(GetWeatherDescriptions));
+          
+        }
+
+        // todo: consider making a generic method that these all call. 
+        // given more time perhaps I could make these generic. On the other hand this 
+        // can make things a bit unreadable and over optimized. It will do for now. 
+        // meeting the requirement is my priority for now.
+         
+        private static List<string> GetWeatherDescriptions(WeatherReport src)
+        {
+            var result = new List<string>();
+
+            foreach (var weather in src.weather)
+            {
+                result.Add(weather.description);
+            }
+
+            return result;
         }
 
         private static List<string> GetCountryCurrencyCode(Country src)

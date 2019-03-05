@@ -162,6 +162,10 @@
       <Project>{c46e63b1-04d5-497c-b484-f9be9906de21}</Project>
       <Name>RestServices.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RestWeather.Domain\RestWeather.Domain.csproj">
+      <Project>{A7A06911-1C9D-486B-9862-069B6C3F9668}</Project>
+      <Name>RestWeather.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -2,6 +2,9 @@
 
 namespace CityWeather.Api.Models
 {
+    /// <summary>
+    /// Country information model for the api. 
+    /// </summary>
     public class CountrySummarySearchResultApiModel
     {
         public string Name { get; set; }
