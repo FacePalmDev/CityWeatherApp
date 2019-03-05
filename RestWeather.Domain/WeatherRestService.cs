@@ -18,7 +18,7 @@ namespace RestWeather.Domain
 
         public WeatherReport GetWeatherReport(string cityName)
         {
-            var request = new RestRequest($"weather?q={ cityName },uk&appid={ UrlSettings.WeatherAppId }", Method.GET);
+            var request = new RestRequest($"weather?q={cityName}&appid={ UrlSettings.WeatherAppId }", Method.GET);
             return GetDeserializedObject(request);
         }
 
