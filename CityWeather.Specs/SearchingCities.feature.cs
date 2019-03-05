@@ -173,16 +173,16 @@ this.SearchForPresentCity("Tokyo", "Tokyo", "Tokyo", "JP", "JP", "1", ((string[]
         public virtual void SearchForNon_PresentCity()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for non-present city", null, ((string[])(null)));
-#line 25
+#line 26
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 26
- testRunner.Given("The city \"London\" exists in the system with country code \"GB\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 27
- testRunner.And("The city \"Manchester\" exists in the system with country code \"GB\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("The city \"London\" exists in the system with country code \"GB\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 28
- testRunner.When("The search term \"Londonderry\" is used", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("The city \"Manchester\" exists in the system with country code \"GB\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 29
+ testRunner.When("The search term \"Londonderry\" is used", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 30
  testRunner.Then("The number of results returned should be 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

@@ -8,7 +8,7 @@ namespace CityWeather.Api.Models
 {
     public class CitySearchResultApiModel
     {
-        public string CityId { get; set; }
+        public int CityId { get; set; }
         public string CityName { get; set; }
         public string CityState { get; set; }
 

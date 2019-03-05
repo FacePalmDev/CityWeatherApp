@@ -8,7 +8,7 @@ namespace CityWeather.Domain.Models
 {
     public class CitySearchResultDomainModel
     {
-        public string CityId { get; set; }
+        public int CityId { get; set; }
         public string CityName { get; set; }
         public string CityState { get; set; }
 
