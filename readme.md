@@ -15,3 +15,16 @@ I know, at one point I got a little tired and started forgetting to check stuff 
 ## PostMan Scripts
 I've included some postman scripts to help you test the api. Sure things might need a little tweaking to work on your machine (e.g. port numers etc...).
 
+## Tools used 
+* Serilog - Great logging extension, very versetile. I also chose the rolling file Sink so as not to clog the server up with logs.
+* RestSharp - Simplifying RESTful requests
+* Entity Framework 
+* StructureMap - Dependency Injection chosen for it's simplicity. You also don't need to define every single map with default conventions. I felt this would reduce lines of code.
+* AutoMapper - because who wants to spend all day mapping models to models? 
+* SpecFlow - BDD Test runner allowing me to write out Gerkin Specs which are bound to integration tests.
+* MSTest - Kept it quite basic for unit testing. 
+* Moq - Again it's a nice simple mocking engine. I didn't need anything more complex.
+* Fluent Assertions - For test readability.
+
+## Technical Debt
+There were time constraints and sometimes in the real world a quick fix is needed. That doesn't mean I've forgotten about the potential issues. Each one I spotted I marked with a //todo. 
