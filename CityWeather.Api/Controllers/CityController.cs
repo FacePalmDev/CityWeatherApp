@@ -23,7 +23,7 @@ namespace CityWeather.Api.Controllers
         }
 
         // PUT: api/Default/5
-        public void Put(int id, [FromBody]CityApiModel city)
+        public void Put(int id, [FromBody]CityUpdateApiModel city)
         {
             _cityDomainService.UpdateCity(id, _mapperService.Map<CityDomainModel>(city));
         }
@@ -34,5 +34,4 @@ namespace CityWeather.Api.Controllers
             _cityDomainService.DeleteCity(id);
         }
     }
-
 }
