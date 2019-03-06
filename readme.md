@@ -26,8 +26,9 @@ I've included some postman scripts to help you test the api. Sure things might n
 * MSTest - Kept it quite basic for unit testing. 
 * Moq - Again it's a nice simple mocking engine. I didn't need anything more complex.
 * Fluent Assertions - For test readability.
-* Resharper - I love it! Especially the continuous testing
-* 
+* Resharper - I love it! I also used the built in continuous testing (I used to use NCrunch for this).
+* GitKraken - A fantastic git client! It has great GitFlow options too!
+
 ## Technical Debt
 There were time constraints and sometimes in the real world a quick fix is needed. That doesn't mean I've forgotten about the potential issues. Each one I spotted I marked with a //todo. 
 
