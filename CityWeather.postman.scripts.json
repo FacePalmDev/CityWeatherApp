@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "260411eb-b78a-4167-a076-2c7a96b05b7c",
+		"name": "CityWeather",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PostCity",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Lupeni\",\n\t\"state\" : \"Hnedoara\",\n\t\"country2LetterCode\": \"ro\",\n\t\"touristRating\": 5,\n\t\"estimatedPopulation\": 2000\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:64700/api/city/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64700",
+					"path": [
+						"api",
+						"city",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchCity",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Lupeni\",\n\t\"state\" : \"Hnedoara\",\n\t\"country2LetterCode\": \"ro\",\n\t\"touristRating\": 5,\n\t\"estimatedPopulation\": 2000\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:64700/api/citysearch?cityname=london",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64700",
+					"path": [
+						"api",
+						"citysearch"
+					],
+					"query": [
+						{
+							"key": "cityname",
+							"value": "london"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteCity",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Lupeni\",\n\t\"state\" : \"Hnedoara\",\n\t\"country2LetterCode\": \"ro\",\n\t\"touristRating\": 5,\n\t\"estimatedPopulation\": 2000\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:64700/api/city/0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64700",
+					"path": [
+						"api",
+						"city",
+						"0"
+					]
+				},
+				"description": "DeleteCity\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"touristRating\": 1,\n\t\"establishedDate\": \"2019-04-23T18:25:43.511Z\",\n\t\"estimatedPopulation\": 2019\n}"
+				},
+				"url": {
+					"raw": "http://localhost:64700/api/city/28",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64700",
+					"path": [
+						"api",
+						"city",
+						"28"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
