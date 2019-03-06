@@ -48,10 +48,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestCountries.Domain", "RestCountries.Api\RestCountries.Domain.csproj", "{06BB78B4-F5E8-4DD5-A3C7-1A8164C98D6B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A2F00B29-E27A-4C60-AF52-62ECEDB83A85}"
-	ProjectSection(SolutionItems) = preProject
-		F:\Windows\Users\zebco\Desktop\CityWeather.postman.scripts.json = F:\Windows\Users\zebco\Desktop\CityWeather.postman.scripts.json
-		readme.md = readme.md
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestServices.Domain", "RestServices\RestServices.Domain.csproj", "{C46E63B1-04D5-497C-B484-F9BE9906DE21}"
 EndProject
