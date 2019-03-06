@@ -3,7 +3,8 @@
 
 ## Things to clarify 
 * Does the star rating system accept values like 4.5? I'll assume not for the moment.
-* What specific country summary data would the client like to see?
+* What specific country/weather summary data would the client like to see?
+* Do the consumers have a specific structure they'd prefer the data in?
 
 ## Why not dotnetcore? 
 I wanted to use dotnetcore but was having problems using specflow with it. As there was no requirement
@@ -25,6 +26,9 @@ I've included some postman scripts to help you test the api. Sure things might n
 * MSTest - Kept it quite basic for unit testing. 
 * Moq - Again it's a nice simple mocking engine. I didn't need anything more complex.
 * Fluent Assertions - For test readability.
-
+* Resharper - I love it! Especially the continuous testing
+* 
 ## Technical Debt
 There were time constraints and sometimes in the real world a quick fix is needed. That doesn't mean I've forgotten about the potential issues. Each one I spotted I marked with a //todo. 
+
+Unit test coverage could also be better but I didn't have enough time. In the real world, I'd continue to work on that after release. 
