@@ -1,5 +1,7 @@
-﻿using System.Net.Http.Headers;
+﻿using System.Diagnostics;
+using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
 
 namespace CityWeather.Api
 {
@@ -21,6 +23,10 @@ namespace CityWeather.Api
             config.Formatters.JsonFormatter.SupportedMediaTypes
                 .Add(new MediaTypeHeaderValue("text/html"));
 
+            config.Services.Add(typeof(IExceptionLogger), new SerilogExceptionLogger());
+
+
         }
+
     }
 }
