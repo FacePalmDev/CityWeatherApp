@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Formatting;
+using System.Web.Http.Results;
 using CityWeather.Api.Controllers;
 using CityWeather.Api.Models;
 using CityWeather.Common.Mappings;
@@ -85,7 +87,9 @@ namespace CityWeather.Specs
         [When(@"The search term ""(.*)"" is used")]
         public void WhenTheSearchTermIsUsed(string searchTerm)
         {
-            _lastSearchResults = _citySearchController.Get(searchTerm);
+            _lastSearchResults =
+                (_citySearchController.Get(searchTerm) as
+                    OkNegotiatedContentResult<IEnumerable<CitySearchResultApiModel>>).Content;
         }
 
         [Then(@"The search results should contain ""(.*)""")]

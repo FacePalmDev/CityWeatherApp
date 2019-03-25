@@ -16,6 +16,13 @@ Scenario: User attempts to add additional cities
 	Then the city "Oxford" should be present in the system
 	And the total number of cities should equal 3.
 
+
+Scenario: User attempts to add a city with no name defined
+	Given That no example cities exist in the system
+	When the system is instructed to add the city "Oxford"
+	Then a validation exception should be thrown
+	And the validation exception message should be "Nothing"
+
 ###
 # Decided to remove this as it was an assumtion. 
 # The requirement for search suggests that many cities can be returned. 

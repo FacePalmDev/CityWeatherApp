@@ -2,11 +2,13 @@
 using TechTalk.SpecFlow;
 using System.Linq;
 using CityWeather.Api.Controllers;
+using CityWeather.Api.Models;
 using CityWeather.Common.Mappings;
 using CityWeather.Data.Contracts;
 using CityWeather.Data.Models;
 using CityWeather.Data.Services;
 using CityWeather.Domain;
+using CityWeather.Domain.Validators;
 using CityWeather.Specs.TestHelpers;
 using FluentAssertions;
 using Moq;
@@ -42,7 +44,8 @@ namespace CityWeather.Specs
                 _mockUnitOfWork.Object,
                 _mapperService);
 
-            var cityDomainService = new CityDomainService(_mapperService, cityDataService);
+            
+            var cityDomainService = new CityDomainService(_mapperService, cityDataService, new CityDomainModelValidator());
 
             _cityApiController = new CityController(_mapperService, cityDomainService);
         }
@@ -71,6 +74,7 @@ namespace CityWeather.Specs
         {
             var exampleCity = ApiModelTestHelper.GetExampleCities().First(x => x.Name == cityName);
             _cityApiController.Post(exampleCity);
+          // _cityApiController.Post(new CityApiModel());
         }
 
         [Then(@"the city ""(.*)"" should be present in the system")]

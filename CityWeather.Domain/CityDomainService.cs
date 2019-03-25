@@ -2,6 +2,8 @@
 using CityWeather.Data.Models.Dtos;
 using CityWeather.Domain.Contracts;
 using CityWeather.Domain.Models;
+using CityWeather.Domain.Validators;
+using FluentValidation;
 
 namespace CityWeather.Domain
 {
@@ -9,15 +11,24 @@ namespace CityWeather.Domain
     {
         private readonly IMapperService _mapperService;
         private readonly ICityDataService _cityDataService;
+        private readonly CityDomainModelValidator _cityDomainModelValidator;
 
-        public CityDomainService(IMapperService mapperService, ICityDataService cityDataService)
+        public CityDomainService(IMapperService mapperService, ICityDataService cityDataService, CityDomainModelValidator cityDomainModelValidator)
         {
             _mapperService = mapperService;
             _cityDataService = cityDataService;
+            _cityDomainModelValidator = cityDomainModelValidator;
         }
 
         public void CreateCity(CityDomainModel newCityDomainModel)
         {
+            var validation = _cityDomainModelValidator.Validate(newCityDomainModel);
+          
+            if (validation.IsValid == false)
+            {
+                throw new ValidationException(validation.Errors);
+            }
+            
             var cityDtoModel = _mapperService.Map<CityDto>(newCityDomainModel);
             _cityDataService.CreateCity(cityDtoModel);
         }

@@ -3,6 +3,7 @@ using CityWeather.Data.Contracts.Services;
 using CityWeather.Data.Models.Dtos;
 using CityWeather.Domain.Contracts;
 using CityWeather.Domain.Models;
+using CityWeather.Domain.Validators;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -25,14 +26,14 @@ namespace CityWeather.Domain.Tests
                 .Setup(x => x.Map<CityDto>(It.IsAny<CityApiModel>()))
                 .Verifiable();
 
-          
             _mockDataService = new Mock<ICityDataService>();
 
             _mockDataService
                 .Setup(x => x.CreateCity(It.IsAny<CityDto>()))
                 .Verifiable();
-            ;
-            _sutDomainService = new CityDomainService(_mockMapperService.Object, _mockDataService.Object);
+
+            _sutDomainService = new CityDomainService(_mockMapperService.Object, _mockDataService.Object,
+                new CityDomainModelValidator());
         }
 
         [TestMethod]
@@ -44,14 +45,11 @@ namespace CityWeather.Domain.Tests
         [TestMethod]
         public void Can_Create()
         {
-            var city = new CityDomainModel() { Name = "London" };
+            var city = new CityDomainModel() {Name = "London"};
             _sutDomainService.CreateCity(city);
 
             _mockMapperService.Verify(x => x.Map<CityDto>(city), Times.Once());
-            _mockDataService.Verify(x=>x.CreateCity(It.IsAny<CityDto>()));
+            _mockDataService.Verify(x => x.CreateCity(It.IsAny<CityDto>()));
         }
-
     }
 }
-
-

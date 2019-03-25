@@ -19,13 +19,22 @@ namespace CityWeather.Api.Controllers
         }
 
         // GET: api/CitySearch/5
-        public IEnumerable<CitySearchResultApiModel> Get(string cityName)
+        public IHttpActionResult Get(string cityName)
         {
             throw new Exception("Bang");
 
             var citySearchResult = _citySearchDomainService.Search(cityName);
-            var result =  _mapperService.Map<IEnumerable<CitySearchResultApiModel>>(citySearchResult);
-            return result;
+            IEnumerable<CitySearchResultApiModel> result;
+            try
+            {
+                result = _mapperService.Map<IEnumerable<CitySearchResultApiModel>>(citySearchResult);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+
+            return Ok(result);
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using System;
+using FluentValidation.Validators;
 
 namespace CityWeather.Domain.Models
 {
+     
     public class CityDomainModel
     {
         /// <summary>
@@ -18,6 +20,7 @@ namespace CityWeather.Domain.Models
         /// <value>
         /// The name.
         /// </value>
+        
         public string Name { get; set; }
 
         /// <summary>

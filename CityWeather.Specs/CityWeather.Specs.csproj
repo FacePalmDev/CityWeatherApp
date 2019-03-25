@@ -146,6 +146,10 @@
       <Project>{6788B23A-9EC6-48DD-9431-23357E757D20}</Project>
       <Name>CityWeather.Domain.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CityWeather.Domain.Validators\CityWeather.Domain.Validators.csproj">
+      <Project>{aa618d86-c3f4-4bfc-b4d9-d6c94902c3ee}</Project>
+      <Name>CityWeather.Domain.Validators</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CityWeather.Domain\CityWeather.Domain.csproj">
       <Project>{FEF98203-8648-48A7-BACE-8C7364F468A3}</Project>
       <Name>CityWeather.Domain</Name>

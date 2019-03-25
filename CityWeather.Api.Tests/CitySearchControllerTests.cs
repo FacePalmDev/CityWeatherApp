@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Web.Http.Results;
 using CityWeather.Api.Controllers;
 using CityWeather.Api.Models;
 using CityWeather.Data.Contracts.Services;
@@ -64,7 +65,8 @@ namespace CityWeather.Api.Tests
         public void Can_Search()
         {
             var searchTerm = "Lupeni";
-            var results = _sutCityController.Get(searchTerm);
+            var results = (_sutCityController.Get(searchTerm) as
+                OkNegotiatedContentResult<IEnumerable<CitySearchResultApiModel>>).Content;
 
             _mockMapperService.Verify(x => x.Map<IEnumerable<CitySearchResultApiModel>>(It.IsAny<IEnumerable<CitySearchResultDomainModel>>()));
             results.Count().Should().Be(1);

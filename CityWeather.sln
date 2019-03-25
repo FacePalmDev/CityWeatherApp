@@ -57,6 +57,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestWeather.Models", "RestW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestServices.Domain.Contracts", "RestServices.Contracts\RestServices.Domain.Contracts.csproj", "{2AB08275-D5AA-4C81-8941-A0A6A82D5B70}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityWeather.Domain.Validators", "CityWeather.Domain.Validators\CityWeather.Domain.Validators.csproj", "{AA618D86-C3F4-4BFC-B4D9-D6C94902C3EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -143,6 +145,10 @@ Global
 		{2AB08275-D5AA-4C81-8941-A0A6A82D5B70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AB08275-D5AA-4C81-8941-A0A6A82D5B70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AB08275-D5AA-4C81-8941-A0A6A82D5B70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA618D86-C3F4-4BFC-B4D9-D6C94902C3EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA618D86-C3F4-4BFC-B4D9-D6C94902C3EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA618D86-C3F4-4BFC-B4D9-D6C94902C3EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA618D86-C3F4-4BFC-B4D9-D6C94902C3EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -168,6 +174,7 @@ Global
 		{A7A06911-1C9D-486B-9862-069B6C3F9668} = {971721C5-E5A0-4BB6-95CC-8E3371F9041D}
 		{4C7472E4-E666-4E60-9C52-CEC99DCA58DE} = {971721C5-E5A0-4BB6-95CC-8E3371F9041D}
 		{2AB08275-D5AA-4C81-8941-A0A6A82D5B70} = {971721C5-E5A0-4BB6-95CC-8E3371F9041D}
+		{AA618D86-C3F4-4BFC-B4D9-D6C94902C3EE} = {971721C5-E5A0-4BB6-95CC-8E3371F9041D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {825D3F21-622C-46C4-BBF0-F7189C9520FC}
